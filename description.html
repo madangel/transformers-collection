@@ -12,9 +12,11 @@
             <!-- Ajout de la div pour l'icône -->
             <div class="pdf-icon" id="pdfLink"></div>
         </div>
-        <p>Référence du Jouet: <span id="toyReference"></span></p>
+        <p>Référence : #<span id="toyReference"></span></p>
         <div id="toyPhotos" class="toy-photos"></div>
-        <iframe id="pdfViewer" width="100%" height="600px"></iframe>
+        <div id="pdfContainer" style="display: none;">
+            <iframe id="pdfViewer" width="100%" height="600px"></iframe>
+        </div>
         <script src="description.js"></script>
     </body>
 </html>
