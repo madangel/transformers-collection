@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const toyList = document.getElementById('toyList');
-    const response = await fetch('https://transformers-collection.firebaseio.com/toys.json');
+    const response = await fetch('https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys.json');
     const toys = await response.json();
 
     for (const toyId in toys) {
