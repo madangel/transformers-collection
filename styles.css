@@ -20,6 +20,7 @@ h1, h2 {
     width: 5vw;
     height: auto;
     cursor: pointer;
+    padding: 10px;
 }
 
 .toy-photos img {
