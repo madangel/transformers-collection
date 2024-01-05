@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const toy = toys[toyId];
         const toyThumbnail = document.createElement('div');
         toyThumbnail.classList.add('toy-thumbnail');
-        thumbnail = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys/' + toy + '%2thumbnail.jpg?alt=media'
+        thumbnail = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys/' + toy + '%2thumbnail.jpg?alt=media';
         toyThumbnail.innerHTML = `
             <img src="${thumbnail}" alt="${thumbnail}">
             <p>${toy.name}</p>
