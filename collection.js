@@ -15,5 +15,5 @@ document.addEventListener('DOMContentLoaded', async () => {
             window.location.href = `description.html?id=${toyId}`;
         });
         toyList.appendChild(toyThumbnail);
-    }
+    } 
 });
