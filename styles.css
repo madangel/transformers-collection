@@ -15,9 +15,9 @@ h1, h2 {
 }
 
 .pdf-icon {
-    background-image: url('pdf_icon.png'); /* Remplacer par le chemin de votre icône PDF */
+    background-image: url('pdf_icon.png');
     background-size: contain;
-    width: 5vw; /* Ajuster la taille de l'icône PDF en fonction de la largeur de l'écran */
+    width: 5vw;
     height: auto;
     cursor: pointer;
 }
