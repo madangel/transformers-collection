@@ -19,9 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 return '<img src="' + photo + '" alt="Toy Photo">';
             }).join('');
 
-            pdfViewerElement.src = toy.notice;
+            if (pdfViewerElement) {
+                pdfViewerElement.src = toy.notice;
+            }
 
-            pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
-            pdfLinkElement.target = '_self';
+            if (pdfLinkElement) {
+                pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
+                pdfLinkElement.target = '_self';
+            }
         });
 });
