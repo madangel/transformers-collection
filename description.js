@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
             toyNameElement.innerText = toy.name;
             toyReferenceElement.innerText = toy.reference;
 
-            toyPhotosElement.innerHTML = toy.photos.map(function(photo) {
+            var photosArray = Object.values(toy.photos);
+            toyPhotosElement.innerHTML = photosArray.map(function(photo) {
                 return '<img src="' + photo + '" alt="Toy Photo">';
             }).join('');
 
