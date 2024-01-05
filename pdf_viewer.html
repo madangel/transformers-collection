@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualisation de la Notice PDF</title>
+</head>
+<body>
+    <iframe id="pdfViewer" width="100%" height="100%" frameborder="0"></iframe>
+    <script>
+        var pdfUrl = decodeURIComponent(new URLSearchParams(window.location.search).get('pdfUrl'));
+        var pdfViewerElement = document.getElementById('pdfViewer');
+        pdfViewerElement.src = 'https://docs.google.com/viewer?url=' + encodeURIComponent(pdfUrl) + '&embedded=true';
+    </script>
+</body>
+</html>
