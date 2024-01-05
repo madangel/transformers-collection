@@ -1,20 +1,19 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var toyList = document.getElementById('toyList');
-    fetch('https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys.json')
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(toys) {
-            var toysArray = Object.values(toys);
-            toyList.innerHTML = toysArray.map(function(toy) {
-                return '<div class="toy-thumbnail" onclick="redirectToDescription(\'' + toy.id + '\')">' +
-                           '<img src="' + toy.photos[0] + '" alt="' + toy.name + '">' +
-                           '<p>' + toy.name + '</p>' +
-                         '</div>';
-            }).join('');
-        });
-});
+document.addEventListener('DOMContentLoaded', async () => {
+    const toyList = document.getElementById('toyList');
+    const response = await fetch('https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys.json');
+    const toys = await response.json();
 
-function redirectToDescription(toyId) {
-    window.location.href = 'description.html?id=' + toyId;
-}
+    for (const toyId in toys) {
+        const toy = toys[toyId];
+        const toyThumbnail = document.createElement('div');
+        toyThumbnail.classList.add('toy-thumbnail');
+        toyThumbnail.innerHTML = `
+            <img src="${toy.photos[0]}" alt="${toy.name}">
+            <p>${toy.name}</p>
+        `;
+        toyThumbnail.addEventListener('click', () => {
+            window.location.href = `description.html?id=${toyId}`;
+        });
+        toyList.appendChild(toyThumbnail);
+    }
+});
