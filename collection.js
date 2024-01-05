@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     var toyList = document.getElementById('toyList');
-    fetch('https://transformers-collection.firebaseio.com/toys.json')
+    fetch('https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys.json')
         .then(function(response) {
             return response.json();
         })
