@@ -4,9 +4,9 @@ body {
 }
 
 .toy-image {
-    height: 100%; /* Ajustez la hauteur selon vos besoins */
-    max-height: 400px; /* Définissez une hauteur maximale si nécessaire */
-    width: auto;
+    width: 100%; /* Ajustez la largeur selon vos besoins */
+    max-width: 400px; /* Définissez une largeur maximale si nécessaire */
+    height: auto;
     display: block; /* Assurez-vous que l'image ne dépasse pas de son conteneur */
     margin: 0 auto; /* Centrez l'image dans son conteneur */
 }
