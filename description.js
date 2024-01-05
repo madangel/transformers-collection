@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             var photosArray = Object.values(toy.photos);
             toyPhotosElement.innerHTML = photosArray.map(function(photo) {
-                return '<img src="' + photo + '" alt="Toy Photo">';
+                return '<img src="' + photo + '" alt="Toy Photo" class="toy-image">';
             }).join('');
 
             pdfViewerElement.src = toy.notice;
