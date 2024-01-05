@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var toyPhotosElement = document.getElementById('toyPhotos');
     var pdfViewerElement = document.getElementById('pdfViewer');
     var pdfLinkElement = document.getElementById('pdfLink');
-    var pdfLinkElement = document.getElementById('pdfLink');
     var pdfContainerElement = document.getElementById('pdfContainer');
 
     if (pdfLinkElement && pdfContainerElement) {
