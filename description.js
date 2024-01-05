@@ -19,10 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 return '<img src="' + photo + '" alt="Toy Photo">';
             }).join('');
 
-            // pdfViewerElement.src = toy.notice;
             pdfViewerElement.src = toy.notice;
 
-            // Ajout du lien vers la page de la notice PDF
             pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
+            pdfLinkElement.target = '_self';
         });
 });
