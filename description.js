@@ -11,12 +11,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     toyNameElement.innerText = toy.name;
     toyReferenceElement.innerText = toy.reference;
 
+    pdfViewerElement.src = toy.notice;
+
     toy.photos.forEach(photo => {
         const img = document.createElement('img');
         img.src = photo;
         img.alt = 'Toy Photo';
         toyPhotosElement.appendChild(img);
     });
-
-    pdfViewerElement.src = toy.notice;
 });
