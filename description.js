@@ -1,19 +1,22 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    const toyNameElement = document.getElementById('toyName');
-    const toyReferenceElement = document.getElementById('toyReference');
-    const toyPhotosElement = document.getElementById('toyPhotos');
-    const pdfViewerElement = document.getElementById('pdfViewer');
+document.addEventListener('DOMContentLoaded', function() {
+    var toyNameElement = document.getElementById('toyName');
+    var toyReferenceElement = document.getElementById('toyReference');
+    var toyPhotosElement = document.getElementById('toyPhotos');
+    var pdfViewerElement = document.getElementById('pdfViewer');
 
-    const toyId = new URLSearchParams(window.location.search).get('id');
-    const response = await fetch(`https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys/${toyId}.json`);
-    const toy = await response.json();
+    var toyId = new URLSearchParams(window.location.search).get('id');
+    fetch('https://YOUR-FIREBASE-PROJECT-ID.firebaseio.com/toys/' + toyId + '.json')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(toy) {
+            toyNameElement.innerText = toy.name;
+            toyReferenceElement.innerText = toy.reference;
 
-    toyNameElement.innerText = toy.name;
-    toyReferenceElement.innerText = toy.reference;
+            toyPhotosElement.innerHTML = toy.photos.map(function(photo) {
+                return '<img src="' + photo + '" alt="Toy Photo">';
+            }).join('');
 
-    toyPhotosElement.innerHTML = toy.photos.map(photo => `
-        <img src="${photo}" alt="Toy Photo">
-    `).join('');
-
-    pdfViewerElement.src = toy.notice;
+            pdfViewerElement.src = toy.notice;
+        });
 });
