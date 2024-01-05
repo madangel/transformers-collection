@@ -16,4 +16,4 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
         toyList.appendChild(toyThumbnail);
     }
-});
+}); 
