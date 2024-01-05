@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const pdfViewerElement = document.getElementById('pdfViewer');
 
     const toyId = new URLSearchParams(window.location.search).get('id');
-    const response = await fetch(`https://transformers-collection.firebaseio.com/toys/${toyId}.json`);
+    const response = await fetch(`https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys/${toyId}.json`);
     const toy = await response.json();
 
     toyNameElement.innerText = toy.name;
