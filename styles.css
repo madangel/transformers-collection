@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1, h2 {
+    color: #0056b3;
+}
+
+a {
+    color: #008CBA;
+    text-decoration: none;
+}
+
+.toy-thumbnail {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.toy-thumbnail img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
