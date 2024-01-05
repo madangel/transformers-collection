@@ -3,14 +3,6 @@ body {
     margin: 20px;
 }
 
-.toy-image {
-    width: 100%; /* Ajustez la largeur selon vos besoins */
-    max-width: 400px; /* Définissez une largeur maximale si nécessaire */
-    height: auto;
-    display: block; /* Assurez-vous que l'image ne dépasse pas de son conteneur */
-    margin: 0 auto; /* Centrez l'image dans son conteneur */
-}
-
 .toy-details {
     display: flex;
     justify-content: space-between;
@@ -19,15 +11,24 @@ body {
 
 h1, h2 {
     color: #0056b3;
-    margin: 0; /* Supprimer la marge par défaut du titre */
+    margin: 0;
 }
 
 .pdf-icon {
     background-image: url('pdf_icon.png'); /* Remplacer par le chemin de votre icône PDF */
     background-size: contain;
-    width: 50px; /* Ajuster la taille de l'icône selon vos besoins */
-    height: 50px; /* Ajuster la taille de l'icône selon vos besoins */
+    width: 5vw; /* Ajuster la taille de l'icône PDF en fonction de la largeur de l'écran */
+    height: auto;
     cursor: pointer;
+}
+
+.toy-photos img {
+    width: 100%; /* La largeur est de 100% de la largeur de son conteneur */
+    height: auto;
+    max-width: 100vw; /* La largeur maximale est de 100% de la largeur de l'écran */
+    max-height: 100vh; /* La hauteur maximale est de 100% de la hauteur de l'écran */
+    display: block;
+    margin: 0 auto;
 }
 
 a {
