@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var toyReferenceElement = document.getElementById('toyReference');
     var toyPhotosElement = document.getElementById('toyPhotos');
     var pdfViewerElement = document.getElementById('pdfViewer');
+    var pdfLinkElement = document.getElementById('pdfLink');
 
     var toyId = new URLSearchParams(window.location.search).get('id');
     fetch('https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys/' + toyId + '.json')
