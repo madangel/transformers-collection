@@ -3,8 +3,23 @@ body {
     margin: 20px;
 }
 
+.toy-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 h1, h2 {
     color: #0056b3;
+    margin: 0; /* Supprimer la marge par défaut du titre */
+}
+
+.pdf-icon {
+    background-image: url('pdf_icon.png'); /* Remplacer par le chemin de votre icône PDF */
+    background-size: contain;
+    width: 50px; /* Ajuster la taille de l'icône selon vos besoins */
+    height: 50px; /* Ajuster la taille de l'icône selon vos besoins */
+    cursor: pointer;
 }
 
 a {
