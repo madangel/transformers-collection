@@ -3,6 +3,14 @@ body {
     margin: 20px;
 }
 
+.toy-image {
+    width: 100%; /* Ajustez la largeur selon vos besoins */
+    max-width: 400px; /* Définissez une largeur maximale si nécessaire */
+    height: auto;
+    display: block; /* Assurez-vous que l'image ne dépasse pas de son conteneur */
+    margin: 0 auto; /* Centrez l'image dans son conteneur */
+}
+
 .toy-details {
     display: flex;
     justify-content: space-between;
