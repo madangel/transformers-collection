@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var pdfViewerElement = document.getElementById('pdfViewer');
 
     var toyId = new URLSearchParams(window.location.search).get('id');
-    fetch('https://transformers-collection.firebaseio.com/toys/' + toyId + '.json')
+    fetch('https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys/' + toyId + '.json')
         .then(function(response) {
             return response.json();
         })
