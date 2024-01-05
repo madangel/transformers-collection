@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     var toyId = new URLSearchParams(window.location.search).get('id');
-    fetch('https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys/' + toyId + '.json')
+    fetch('https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys/'+toyId+'.json')
         .then(function(response) {
             return response.json();
         })
@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             var photosArray = Object.values(toy.photos);
             toyPhotosElement.innerHTML = photosArray.map(function(photo) {
-                return '<img src="' + photo + '" alt="Toy Photo" class="toy-image">';
+                src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys/'+toyId+'%2'+photo+'?alt=media';
+                return '<img src="' + src + '" alt="${toyId}/photo" class="toy-image">';
             }).join('');
 
             pdfViewerElement.src = toy.notice;
