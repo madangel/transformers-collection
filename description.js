@@ -22,6 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
             pdfViewerElement.src = toy.notice;
             
             pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
-            pdfLinkElement.target = '_self';
+            // pdfLinkElement.target = '_self';
         });
 });
