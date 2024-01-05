@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(function(toys) {
-            toyList.innerHTML = toys.map(function(toy) {
+            var toysArray = Object.values(toys);
+            toyList.innerHTML = toysArray.map(function(toy) {
                 return '<div class="toy-thumbnail" onclick="redirectToDescription(\'' + toy.id + '\')">' +
                            '<img src="' + toy.photos[0] + '" alt="' + toy.name + '">' +
                            '<p>' + toy.name + '</p>' +
