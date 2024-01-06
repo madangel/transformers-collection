@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    var url_src = 'https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys'
     var toyNameElement = document.getElementById('toyName');
     var toyLevelElement = document.getElementById('toyLevel');
     var toyReferenceElement = document.getElementById('toyReference');
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     var toyId = new URLSearchParams(window.location.search).get('id');
-    fetch('https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys/'+toyId+'.json')
+    fetch(url_src + '/' + toyId + '.json')
         .then(function(response) {
             return response.json();
         })
@@ -40,13 +41,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (toy.photos) {
                 var photosArray = Object.values(toy.photos);
                 toyPhotosElement.innerHTML = photosArray.map(function(photo) {
-                    img_src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'+toyId+'%2F'+photo+'?alt=media';
+                    img_src = url_src + '%2F' + toyId + '%2F' + photo + '?alt=media';
                     return '<img src="' + img_src + '" alt="' + toyId + '"/photo" class="toy-image">';
                 }).join('');
             }
 
-            pdf_src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'+toyId+'%2Fnotice.pdf?alt=media';
+            pdf_src = url_src + '%2F' + toyId + '%2Fnotice.pdf';
             if (checkFileExistence(pdf_src)) {
+                pdf_src = pdf_src + '?alt=media'
                 pdfViewerElement.src = pdf_src;
                 pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
                 // pdfLinkElement.target = '_self';
