@@ -37,6 +37,12 @@ a {
     text-decoration: none;
 }
 
+#toyList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+}
+
 .toy-thumbnail {
     border: 1px solid #ddd;
     padding: 10px;
