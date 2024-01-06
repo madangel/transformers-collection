@@ -38,18 +38,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 // pdfLinkElement.target = '_self';
             }
         });
-});
 
-function checkFileExistence(source) {
-    fetch(source, { method: 'HEAD' })
-        .then(function(response) {
-            if (response.ok) {
-                return true;
-            } else {
+    function checkFileExistence(source) {
+        fetch(source, { method: 'HEAD' })
+            .then(function(response) {
+                if (response.ok) {
+                    return true;
+                } else {
+                    return false;
+                }
+            })
+            .catch(function(error) {
                 return false;
-            }
-        })
-        .catch(function(error) {
-            return false;
-        });
-}
+            });
+    }
+});
