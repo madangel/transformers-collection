@@ -48,9 +48,8 @@ a {
 .toy-thumbnail {
     border: 1px solid #ddd;
     padding: 10px;
-    margin: 10px;
+    margin: 0px;
     text-align: center;
-    text-col
     cursor: pointer;
     border-radius: 15px;
     background-color: #000;
