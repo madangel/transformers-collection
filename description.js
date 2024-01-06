@@ -8,20 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var pdfLinkElement = document.getElementById('pdfLink');
     var pdfContainerElement = document.getElementById('pdfContainer');
 
-    function checkFileExistence(source) {
-        fetch(source, { method: 'HEAD', mode: 'no-cors' })
-            .then(function(response) {
-                if (response.ok) {
-                    return true;
-                } else {
-                    return false;
-                }
-            })
-            .catch(function(error) {
-                return false;
-            });
-    }
-
     if (pdfLinkElement && pdfContainerElement) {
         pdfLinkElement.addEventListener('click', function() {
             pdfContainerElement.style.display = (pdfContainerElement.style.display === 'none') ? 'block' : 'none';
