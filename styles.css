@@ -38,15 +38,18 @@ a {
 }
 
 #toyList {
-    display: flex;
+    //display: flex;
+    max-width: 100%; 
     flex-wrap: wrap;
+    margin-inline: px;
     justify-content: space-around; 
 }
 
 .toy-thumbnail {
     border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 3px;
     text-align: center;
     cursor: pointer;
 }
