@@ -46,12 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).join('');
             }
 
-            pdf_src = url_storage + toyId + '%2Fnotice.pdf';
-            if (checkFileExistence(pdf_src)) {
-                pdf_src = pdf_src + '?alt=media'
-                pdfViewerElement.src = pdf_src;
-                pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
-                // pdfLinkElement.target = '_self';
-            }
+            pdfViewerElement.src = url_storage + toyId + '%2Fnotice.pdf?alt=media'
+            pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
+            // pdfLinkElement.target = '_self';
         });
 });
