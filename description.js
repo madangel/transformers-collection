@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             pdf_src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'+toyId+'%2Fnotice.pdf?alt=media';
-            if checkFileExistence(pdf_src) {
+            if (checkFileExistence(pdf_src)) {
                 pdfViewerElement.src = pdf_src;
                 // pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
                 // pdfLinkElement.target = '_self';
