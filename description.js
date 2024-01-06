@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     var toyNameElement = document.getElementById('toyName');
+    var toyLevelElement = document.getElementById('level');
     var toyReferenceElement = document.getElementById('toyReference');
     var toyPhotosElement = document.getElementById('toyPhotos');
     var pdfViewerElement = document.getElementById('pdfViewer');
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(function(toy) {
             toyNameElement.innerText = toy.name;
+            toyLevelElement.innerText = toy.level + "/5"; 
             toyReferenceElement.innerText = toy.reference;
 
             var photosArray = Object.values(toy.photos);
