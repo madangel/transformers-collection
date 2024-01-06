@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             var photosArray = Object.values(toy.photos);
             toyPhotosElement.innerHTML = photosArray.map(function(photo) {
-                src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys/'+toyId+'%2'+photo+'?alt=media';
-                return '<img src="' + src + '" alt="${toyId}/photo" class="toy-image">';
+                src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'+toyId+'%2F'+photo+'?alt=media';
+                return '<img src="' + src + '" alt="' + toyId + '"/photo" class="toy-image">';
             }).join('');
 
             pdfViewerElement.src = toy.notice;
