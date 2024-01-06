@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     var toyNameElement = document.getElementById('toyName');
-    var toyLevelElement = document.getElementById('level');
+    var toyLevelElement = document.getElementById('toyLevel');
     var toyReferenceElement = document.getElementById('toyReference');
     var toyPhotosElement = document.getElementById('toyPhotos');
     var pdfViewerElement = document.getElementById('pdfViewer');
