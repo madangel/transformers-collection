@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(function(toy) {
             toyNameElement.innerText = toy.name;
-            toyLevelElement.innerText = toy.level + "/5"; 
+            toyLevelElement.innerText = toy.level; 
             toyReferenceElement.innerText = toy.reference;
 
             if (toy.photos) {
