@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             toyLevelElement.innerText = toy.level + "/5"; 
             toyReferenceElement.innerText = toy.reference;
 
-            if (toy.photos && toy.photos.length > 0) {
+            if (toy.photos) {
                 var photosArray = Object.values(toy.photos);
                 toyPhotosElement.innerHTML = photosArray.map(function(photo) {
                     img_src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'+toyId+'%2F'+photo+'?alt=media';
@@ -31,10 +31,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).join('');
             }
 
-            if (toy.notice) {
-                pdfViewerElement.src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'+toyId+'%2Fnotice.pdf?alt=media';
-                pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
+            pdf_src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'+toyId+'%2Fnotice.pdf?alt=media';
+            if checkFileExistence(pdf_src) {
+                pdfViewerElement.src = pdf_src;
+                // pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
                 // pdfLinkElement.target = '_self';
             }
         });
 });
+
+function checkFileExistence(source) {
+    fetch(source, { method: 'HEAD' })
+        .then(function(response) {
+            if (response.ok) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+        .catch(function(error) {
+            return false;
+        });
+}
