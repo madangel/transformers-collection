@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var pdfContainerElement = document.getElementById('pdfContainer');
 
     function checkFileExistence(source) {
-        fetch(source, { method: 'HEAD' })
+        fetch(source, { method: 'HEAD', mode: 'no-cors' })
             .then(function(response) {
                 if (response.ok) {
                     return true;
