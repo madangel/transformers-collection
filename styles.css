@@ -46,9 +46,7 @@ a {
 }
 
 .toy-thumbnail img {
-    width: 100%; 
-    max-width: 100vw; 
-    max-height: 100vh;
+    max-width: 100%; 
     height: auto;
     display: block;
     margin: 0 auto;
