@@ -23,11 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             var photosArray = Object.values(toy.photos);
             toyPhotosElement.innerHTML = photosArray.map(function(photo) {
-                src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'+toyId+'%2F'+photo+'?alt=media';
-                return '<img src="' + src + '" alt="' + toyId + '"/photo" class="toy-image">';
+                img_src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'+toyId+'%2F'+photo+'?alt=media';
+                return '<img src="' + img_src + '" alt="' + toyId + '"/photo" class="toy-image">';
             }).join('');
 
-            pdfViewerElement.src = toy.notice;
+            pdfViewerElement.src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'+toyId+'%2Fnotice.pdf?alt=media';
+            // pdfViewerElement.src = toy.notice;
             
             pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
             // pdfLinkElement.target = '_self';
