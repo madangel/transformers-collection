@@ -11,6 +11,11 @@
             document.addEventListener('contextmenu', function (e) {
                 e.preventDefault();
             });
+            document.addEventListener('touchstart', function(e) {
+                if (e.touches.length > 1) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
         </script>
         <h1>My Collection of Transformers</h1>
         <div id="toyList"></div>
