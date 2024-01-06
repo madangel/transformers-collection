@@ -23,16 +23,18 @@ document.addEventListener('DOMContentLoaded', function() {
             toyLevelElement.innerText = toy.level + "/5"; 
             toyReferenceElement.innerText = toy.reference;
 
-            var photosArray = Object.values(toy.photos);
-            toyPhotosElement.innerHTML = photosArray.map(function(photo) {
-                img_src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'+toyId+'%2F'+photo+'?alt=media';
-                return '<img src="' + img_src + '" alt="' + toyId + '"/photo" class="toy-image">';
-            }).join('');
+            if (toy.photos && toy.photos.length > 0) {
+                var photosArray = Object.values(toy.photos);
+                toyPhotosElement.innerHTML = photosArray.map(function(photo) {
+                    img_src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'+toyId+'%2F'+photo+'?alt=media';
+                    return '<img src="' + img_src + '" alt="' + toyId + '"/photo" class="toy-image">';
+                }).join('');
+            }
 
-            pdfViewerElement.src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'+toyId+'%2Fnotice.pdf?alt=media';
-            // pdfViewerElement.src = toy.notice;
-            
-            pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
-            // pdfLinkElement.target = '_self';
+            if (toy.notice) {
+                pdfViewerElement.src = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'+toyId+'%2Fnotice.pdf?alt=media';
+                pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
+                // pdfLinkElement.target = '_self';
+            }
         });
 });
