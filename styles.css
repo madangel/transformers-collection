@@ -38,7 +38,7 @@ a {
 }
 
 #toyList {
-    //display: flex;
+    display: flex;
     max-width: 100%; 
     flex-wrap: wrap;
     margin-inline: px;
@@ -46,14 +46,14 @@ a {
 }
 
 .toy-thumbnail {
-    border: 1px solid #ddd;
+    width: calc(50% - 20px); 
+    margin: 10px;
     padding: 10px;
-    margin: 0px;
-    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    border-radius: 15px;
-    background-color: #000;
-    color: #fff;
+    box-sizing: border-box; 
 }
 
 .toy-thumbnail img {
