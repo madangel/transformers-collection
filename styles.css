@@ -1,6 +1,12 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
+    margin: 0;
+    padding: 0;
+    background-image: url('chemin/vers/votre/image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .toy-details {
