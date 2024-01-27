@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).join('');
             }
 
-            pdfViewerElement.src = url_storage + toyId + '%2Fnotice.pdf?alt=media'
+            pdfViewerElement.src = url_storage + toyId + '%2Fnotice.pdf?alt=media#toolbar=0'
             pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
             // pdfLinkElement.target = '_self';
         });
