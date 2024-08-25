@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         toyThumbnail.classList.add('toy-thumbnail');
         url_firebasestorage = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/';
         thumbnail = url_firebasestorage+'toys%2F'+toyId+'%2F001.jpg?alt=media';
-        completIcon = url_firebasestorage+'icons%2F'+toy.alliance+'.jpg'
-        weaponCompletIcon = url_firebasestorage+'icons%2F'+toy.alliance+'.jpg'
-        allianceIcon = url_firebasestorage+'icons%2F'+toy.alliance+'.jpg'
+        completIcon = url_firebasestorage+'icons%2F'+toy.alliance+'.ico'
+        weaponCompletIcon = url_firebasestorage+'icons%2F'+toy.alliance+'.ico'
+        allianceIcon = url_firebasestorage+'icons%2F'+toy.alliance+'.ico'
         toyThumbnail.innerHTML = `
             <p>${toy.name}</p> 
             <img src="${thumbnail}" alt="${toyId}/001.jpg">
