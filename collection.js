@@ -14,16 +14,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         weaponCompletIcon = url_firebasestorage+'icons%2F'+toy.complete+'.jpg?alt=media'
         allianceIcon = url_firebasestorage+'icons%2F'+toy.alliance+'.jpg?alt=media'
         var pdfUrl = url_firebasestorage+'toys%2F'+toyId+'%2Fnotice.pdf';
-        var manual_display = "none"
-        fetch(pdfUrl, { method: 'HEAD' })
-            .then(function(response) {
-                if (response.ok) {
-                    manual_display = "block"
-                } 
-            })
-            .catch(function() {
+        let manual_display = "none"
+        try {
+            const pdfResponse = await fetch(pdfUrl, { method: 'HEAD' });
+            if (pdfResponse.ok) {
+                manual_display = "block";
+            }
+        } catch (error) {
+                console.error('Error checking PDF:', error);
                 manual_display = "none"
-            });
+        }
         toyThumbnail.innerHTML = `
             <p>${toy.name}</p> 
             <img src="${thumbnail}" alt="${toyId}/001.jpg">
