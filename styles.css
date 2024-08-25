@@ -55,6 +55,10 @@ a {
     cursor: pointer;
     box-sizing: border-box;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between
 }
 
 .toy-thumbnail img {
@@ -70,9 +74,12 @@ a {
     right: 10px;
     display: flex;
     gap: 5px;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 .icon {
     width: 20px;
     height: 20px;
+    margin: 0 5px;
 }
