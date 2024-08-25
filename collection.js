@@ -13,19 +13,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         completIcon = url_firebasestorage+'icons%2F'+toy.weapon+'.jpg?alt=media'
         weaponCompletIcon = url_firebasestorage+'icons%2F'+toy.complete+'.jpg?alt=media'
         allianceIcon = url_firebasestorage+'icons%2F'+toy.alliance+'.jpg?alt=media'
+        var pdfUrl = url_firebasestorage+'toys%2F'+toyId+'%2Fnotice.pdf';
+        var manual_display = "none"
+        fetch(pdfUrl, { method: 'HEAD' })
+            .then(function(response) {
+                if (response.ok) {
+                    manual_display = "block"
+                } 
+            })
+            .catch(function() {
+                manual_display = "none"
+            });
         toyThumbnail.innerHTML = `
             <p>${toy.name}</p> 
             <img src="${thumbnail}" alt="${toyId}/001.jpg">
             <div class="icons" >
-                var pdfUrl = url_firebasestorage+'toys%2F'+toyId+'%2Fnotice.pdf';
-                fetch(pdfUrl, { method: 'HEAD' })
-                    .then(function(response) {
-                        if (response.ok) {
-                            <img src="${manualIcon}" alt="Manual" class="icon" />
-                        } 
-                    })
-                    .catch(function() {
-                    });
+                <img src="${manualIcon}" alt="Manual" class="icon" style="display: "+${manual_display}+";"/>
                 <img src="${weaponCompletIcon}" alt="Weapon Complet" class="icon" />
                 <img src="${completIcon}" alt="Complet" class="icon" />
                 <img src="${allianceIcon}" alt="Alliance" class="icon" />
