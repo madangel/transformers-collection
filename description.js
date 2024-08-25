@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).join('');
             }
 
-            var pdfUrl = url_storage + toyId + '%2Fnotice.pdf?alt=media';
+            var pdfUrl = url_storage + toyId + '%2Fnotice.pdf';
             fetch(pdfUrl, { method: 'HEAD' })
                 .then(function(response) {
                     if (response.ok) {
                         pdfLinkElement.style.display = 'block'; 
-                        pdfViewerElement.src = pdfUrl + '#toolbar=0';
-                        pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(pdfUrl);
+                        pdfViewerElement.src = pdfUrl + '?alt=media#toolbar=0';
+                        pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
                     } else {
                         pdfLinkElement.style.display = 'none';
                     }
@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     pdfLinkElement.style.display = 'none';
                 });
 
-            pdfViewerElement.src = pdfUrl + '#toolbar=0'
-            pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
+            // pdfViewerElement.src = pdfUrl + '#toolbar=0'
+            // pdfLinkElement.href = 'pdf_viewer.html?pdfUrl=' + encodeURIComponent(toy.notice);
             // pdfLinkElement.target = '_self';
         });
 });
