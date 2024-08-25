@@ -62,3 +62,14 @@ a {
     display: block;
     margin: 0 auto;
 }
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
