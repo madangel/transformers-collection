@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var url_storage = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'
     var toyNameElement = document.getElementById('toyName');
+    var toyCollectionElement = document.getElementById('toyCollection');
     var toyLevelElement = document.getElementById('toyLevel');
     var toyReferenceElement = document.getElementById('toyReference');
     var toyPhotosElement = document.getElementById('toyPhotos');
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(function(toy) {
             toyNameElement.innerText = toy.name;
+            toyCollectionElement.innerText = toy.collection;
             toyLevelElement.innerText = toy.level; 
             toyReferenceElement.innerText = toy.reference;
 
