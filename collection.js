@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         toyThumbnail.innerHTML = `
             <p>${toy.name}</p> 
             <img src="${thumbnail}" alt="${toyId}/001.jpg">
-            <div class="icons">
+            <div class="icons" >
                 <img src="${weaponCompletIcon}" alt="Weapon Complet" class="icon" />
                 <img src="${completIcon}" alt="Complet" class="icon" />
                 <img src="${allianceIcon}" alt="Alliance" class="icon" />
