@@ -7,10 +7,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         const toy = toys[toyId];
         const toyThumbnail = document.createElement('div');
         toyThumbnail.classList.add('toy-thumbnail');
-        thumbnail = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'+toyId+'%2F001.jpg?alt=media';
+        url_firebasestorage = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/';
+        thumbnail = url_firebasestorage+'toys%2F'+toyId+'%2F001.jpg?alt=media';
+        stateIcon = url_firebasestorage+'icons%2F'+{toy.alliance}+".jpg"
+        completeIcon = url_firebasestorage+'icons%2F'+{toy.alliance}+".jpg"
+        allianceIcon = url_firebasestorage+'icons%2F'+{toy.alliance}+".jpg"
         toyThumbnail.innerHTML = `
             <p>${toy.name}</p> 
             <img src="${thumbnail}" alt="${toyId}/001.jpg">
+            <div class="icons">
+                <img src="${stateIcon}" alt="State" class="icon" />
+                <img src="${completeIcon}" alt="Complet" class="icon" />
+                <img src="${allianceIcon}" alt="Alliance" class="icon" />
+            </div>
         `;
         toyThumbnail.addEventListener('click', () => {
             window.location.href = `description.html?id=${toyId}`;
