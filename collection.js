@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             <p>${toy.name}</p> 
             <img src="${thumbnail}" alt="${toyId}/001.jpg">
             <div class="icons" >
-                <img src="${manualIcon}" alt="Manual" class="icon" style="display: "+${manual_display}+";"/>
+                <img src="${manualIcon}" alt="Manual" class="icon" style="display: ${manual_display};"/>
                 <img src="${weaponCompletIcon}" alt="Weapon Complet" class="icon" />
                 <img src="${completIcon}" alt="Complet" class="icon" />
                 <img src="${allianceIcon}" alt="Alliance" class="icon" />
