@@ -10,7 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const pdfContainerElement = document.getElementById('pdfContainer');
 
     toyNameElement.addEventListener('click', function (e) {
-        if (history.length > 1) {
+        // Get the previous page URL (referrer)
+        const referrer = document.referrer;
+        // Get the current domain name
+        const currentDomain = window.location.hostname;
+        // Check if the history length is greater than 1 or the referrer is from the same site
+        if (history.length > 1 || (referrer !== "" && new URL(referrer).hostname === currentDomain)) {
             history.back();
         } else {
             window.location.href = 'collection.html';
