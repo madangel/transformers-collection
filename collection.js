@@ -75,6 +75,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Function to sort toys based on a selected criteria
     function sortToys(criteria) {
         const sortedToys = Object.values(toys).sort((a, b) => {
+            // Log the values being compared
+            console.log(`Comparing: a[${criteria}] = ${a[criteria]}, b[${criteria}] = ${b[criteria]}`);
+
             // Check if the criteria value is a string
             if (typeof a[criteria] === 'string' && typeof b[criteria] === 'string') {
                 return a[criteria].localeCompare(b[criteria]);
@@ -83,6 +86,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return (a[criteria] || 0) - (b[criteria] || 0);
             }
         });
+        console.log("Sorted toys:", sortedToys); // Log the sorted toys
         const sortedToysObj = {};
         sortedToys.forEach(toy => {
             const key = Object.keys(toys).find(key => toys[key] === toy);
