@@ -66,10 +66,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 // Change Picture
                 document.getElementById(`${toy.reference}`).addEventListener('click', (e) => {
                     if (e.target.alt === `${toy.reference}/002.jpg`) {
-                        e.target.src = thumbnail2 + new Date().getTime();
+                        e.target.src = thumbnail2 + "&" + new Date().getTime();
                         e.target.alt = `${toy.reference}/001.jpg`;
                     } else {
-                        e.target.src = thumbnail1 + new Date().getTime();
+                        e.target.src = thumbnail1 + "&" + new Date().getTime();
                         e.target.alt = `${toy.reference}/002.jpg`;
                     }
                     e.stopPropagation(); // Stops the event from propagating to parent elements
