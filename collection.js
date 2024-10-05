@@ -75,15 +75,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 `;
 
                 // Change Picture
-                imgElement.addEventListener('click', (e) => {
-                    if (document.getElementById(`${toy.reference}`).alt === `${toy.reference}/002.jpg`) {
-                        document.getElementById(`${toy.reference}`).src = thumbnail2;
-                        document.getElementById(`${toy.reference}`).alt = `${toy.reference}/001.jpg`;
+                document.getElementById(`${toy.reference}`).addEventListener('click', (e) => {
+                    if (e.target.alt === `${toy.reference}/002.jpg`) {
+                        e.target.src = thumbnail2;
+                        e.target.alt = `${toy.reference}/001.jpg`;
                     } else {
-                        document.getElementById(`${toy.reference}`).src = thumbnail1;
-                        document.getElementById(`${toy.reference}`).alt = `${toy.reference}/002.jpg`;
+                        e.target.src = thumbnail1;
+                        e.target.alt = `${toy.reference}/002.jpg`;
                     }
-                    console.log('Image clicked ' + document.getElementById(`${toy.reference}`).alt);
                     e.stopPropagation(); // Stops the event from propagating to parent elements
                 });
             })();
