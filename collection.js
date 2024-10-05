@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 `;
 
                 // Change Picture
-                document.getElementById(`${toy.reference}`).addEventListener('click', (e) => {
+                imgElement.addEventListener('click', (e) => {
                     if (document.getElementById(`${toy.reference}`).alt === `${toy.reference}/002.jpg`) {
                         document.getElementById(`${toy.reference}`).src = thumbnail2;
                         document.getElementById(`${toy.reference}`).alt = `${toy.reference}/001.jpg`;
