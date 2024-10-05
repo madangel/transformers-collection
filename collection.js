@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             imgElement.id = `${toy.reference}`;
             imgElement.src = thumbnail1; // Start with the first image
             imgElement.alt = `${toy.reference}/001.jpg`;
-            imageIndex = 1;
 
             // Use an async function inside to handle the await fetch for checking PDF availability
             (async () => {
@@ -76,15 +75,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 `;
 
                 // Change Picture
-                document.getElementById(`${toy.reference}`).addEventListener('click', (e) => {
-                    if (document.getElementById(`${toy.reference}`).alt === `${toy.reference}/002.jpg`) {
-                        document.getElementById(`${toy.reference}`).src = thumbnail2;
-                        document.getElementById(`${toy.reference}`).alt = `${toy.reference}/001.jpg`;
-                        imageIndex = 2;
+                imgElement.addEventListener('click', (e) => {
+                    if (imgElement.alt === `${toy.reference}/002.jpg`) {
+                        imgElement.src = thumbnail2;
+                        imgElement.alt = `${toy.reference}/001.jpg`;
                     } else {
-                        document.getElementById(`${toy.reference}`).src = thumbnail1;
-                        document.getElementById(`${toy.reference}`).alt = `${toy.reference}/002.jpg`;
-                        imageIndex = 1;
+                        imgElement.src = thumbnail1;
+                        imgElement.alt = `${toy.reference}/002.jpg`;
                     }
                     console.log('Image clicked XXXXXXXXXXXXXXX' + imageIndex);
                     e.stopPropagation(); // Stops the event from propagating to parent elements
