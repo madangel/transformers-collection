@@ -75,13 +75,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                 `;
 
                 // Change Picture
-                imgElement.addEventListener('click', (e) => {
-                    if (imgElement.alt === `${toy.reference}/002.jpg`) {
-                        imgElement.src = thumbnail2;
-                        imgElement.alt = `${toy.reference}/001.jpg`;
+                toyThumbnail.addEventListener('click', (e) => {
+                    if (document.getElementById(`${toy.reference}`).alt === `${toy.reference}/002.jpg`) {
+                        document.getElementById(`${toy.reference}`).src = thumbnail2;
+                        document.getElementById(`${toy.reference}`).alt = `${toy.reference}/001.jpg`;
+                        imageIndex = 2;
                     } else {
-                        imgElement.src = thumbnail1;
-                        imgElement.alt = `${toy.reference}/002.jpg`;
+                        document.getElementById(`${toy.reference}`).src = thumbnail1;
+                        document.getElementById(`${toy.reference}`).alt = `${toy.reference}/002.jpg`;
+                        imageIndex = 1;
                     }
                     console.log('Image clicked XXXXXXXXXXXXXXX' + imageIndex);
                     e.stopPropagation(); // Stops the event from propagating to parent elements
