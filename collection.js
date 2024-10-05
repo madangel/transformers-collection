@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const imgElement = document.createElement('img');
             imgElement.src = thumbnail1; // Start with the first image
             imgElement.alt = `${toy.reference}/001.jpg`;
+            imageIndex = 1;
 
             // Change Picture
             imgElement.addEventListener('click', (e) => {
