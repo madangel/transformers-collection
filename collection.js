@@ -1,3 +1,16 @@
+// Global touch event listeners to diagnose issues
+document.addEventListener('touchstart', function(e) {
+    console.log('Global touchstart detected');
+}, { passive: false });
+
+document.addEventListener('touchmove', function(e) {
+    console.log('Global touchmove detected');
+}, { passive: false });
+
+document.addEventListener('touchend', function(e) {
+    console.log('Global touchend detected');
+}, { passive: false });
+
 document.addEventListener('DOMContentLoaded', async () => {
     const toyList = document.getElementById('toyList');
     const sortOptions = document.getElementById('sortOptions');
@@ -5,19 +18,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const filterAlliance = document.getElementById('filterAlliance');
     const toggleMenu = document.getElementById('toggleMenu');
     const menu = document.getElementById('menu');
-
-    // Global touch event listeners to diagnose issues
-    document.addEventListener('touchstart', function(e) {
-        console.log('Global touchstart detected');
-    }, { passive: false });
-
-    document.addEventListener('touchmove', function(e) {
-        console.log('Global touchmove detected');
-    }, { passive: false });
-
-    document.addEventListener('touchend', function(e) {
-        console.log('Global touchend detected');
-    }, { passive: false });
 
     // Toggle the display of the menu and update the button icon
     toggleMenu.addEventListener('click', () => {
