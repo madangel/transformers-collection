@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Fetch toy data from Firebase
     const toys = await fetchData('https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys.json');
-    console.log("Fetched toys data:", toys); // Log the fetched toys data
 
     // Convert the toys object to an array with an ID for each toy
     const toysArray = Object.keys(toys).map(key => ({
@@ -121,7 +120,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Function to sort toys based on a selected criteria
     function sortToys(criteria) {
-        console.log(`Sorting by criteria: ${criteria}`);
         const sortedToys = toysArray.slice().sort((a, b) => {
             // Check if the criteria value is a string
             if (typeof a[criteria] === 'string' && typeof b[criteria] === 'string') {
@@ -136,7 +134,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Function to search toys by their name
     function searchToys(query) {
-        console.log(`Searching for query: ${query}`);
         const filteredToys = toysArray.filter(toy =>
             toy.name.toLowerCase().includes(query.toLowerCase())
         );
@@ -145,7 +142,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Function to filter toys based on alliance only
     function filterToys(alliance) {
-        console.log(`Filtering by alliance: ${alliance}`);
         const filteredToys = toysArray.filter(toy => {
             const matchesAlliance = alliance === 'all' || toy.alliance === alliance;
             return matchesAlliance;

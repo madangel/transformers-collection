@@ -7,32 +7,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script>
-        // Disable the context menu (right-click) on the document
-        document.addEventListener('contextmenu', function (e) {
-            e.preventDefault(); // Prevents the default right-click menu from appearing
-        });
-    
-        // Check if the touch events are detected properly
-        document.addEventListener('touchstart', function(e) {
-            console.log('touchstart detected');
-            // Only prevent default behavior for multitouch (more than 2 touch points)
-            if (e.touches.length > 2) {
-                console.log('Multitouch detected, preventing default behavior.');
-                e.preventDefault(); // Prevent default for multitouch
-            }
-        }, { passive: false });
-    
-        // Log touchmove to confirm it is detected
-        document.addEventListener('touchmove', function(e) {
-            console.log('touchmove detected'); // Log to see if touchmove is captured
-        }, { passive: true });
-    
-        // Log touchend to confirm it is detected
-        document.addEventListener('touchend', function(e) {
-            console.log('touchend detected'); // Log to see if touchend is captured
-        }, { passive: true });
-    </script>  
 
     <h1>Transformers</h1>
     <!-- Toggle Menu Button (Centered) -->
