@@ -7,6 +7,16 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <script>
+            document.addEventListener('contextmenu', function (e) {
+                e.preventDefault();
+            });
+            document.addEventListener('touchstart', function(e) {
+                if (e.touches.length > 1) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+        </script>
         <div class="toy-details">
             <h1 id="toyName"></h1>
             <!-- Ajout de la div pour l'icône -->

@@ -1,16 +1,3 @@
-// Global touch event listeners to diagnose issues
-document.addEventListener('touchstart', function(e) {
-    console.log('Global touchstart detected');
-}, { passive: false });
-
-document.addEventListener('touchmove', function(e) {
-    console.log('Global touchmove detected');
-}, { passive: false });
-
-document.addEventListener('touchend', function(e) {
-    console.log('Global touchend detected');
-}, { passive: false });
-
 document.addEventListener('DOMContentLoaded', async () => {
     const toyList = document.getElementById('toyList');
     const sortOptions = document.getElementById('sortOptions');
@@ -61,44 +48,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             imgElement.src = thumbnail1; // Start with the first image
             imgElement.alt = `${toy.reference}/001.jpg`;
 
-            // Set up swipe detection variables
-            let touchStartX = 0;
-            let touchEndX = 0;
-
-            // Detect touchstart
-            toyThumbnail.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-                console.log('Element touchstart detected, position:', touchStartX); // Log touch start position
-            });
-
-            // Detect touchend and determine swipe direction
-            toyThumbnail.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                console.log('Element touchend detected, position:', touchEndX); // Log touch end position
-                handleSwipe(); // Call function to handle swipe
-            });
-
-            // Function to handle swipe detection
-            function handleSwipe() {
-                const swipeDistance = touchEndX - touchStartX;
-                console.log('swipe distance:', swipeDistance); // Log swipe distance
-
-                if (swipeDistance > 50 || swipeDistance < -50) { 
-                    toggleImage();
-                }
-            }
-
-            // Toggle between image 1 and image 2
-            function toggleImage() {
+            // Change Picture
+            imgElement.addEventListener('click', () => {
                 if (imageIndex === 1) {
                     imgElement.src = thumbnail2;
+                    imgElement.alt = `${toy.reference}/001.jpg`;
                     imageIndex = 2;
                 } else {
                     imgElement.src = thumbnail1;
+                    imgElement.alt = `${toy.reference}/002.jpg`;
                     imageIndex = 1;
                 }
-                console.log('Image toggled, current image index:', imageIndex); // Log image index
-            }
+            });
 
             // Use an async function inside to handle the await fetch for checking PDF availability
             (async () => {
@@ -126,9 +87,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 `;
             })();
 
-            //toyThumbnail.addEventListener('click', () => {
-            //    window.location.href = `description.html?id=${toy.reference}`;
-            //});
+            toyThumbnail.addEventListener('click', () => {
+                window.location.href = `description.html?id=${toy.reference}`;
+            });
             toyList.appendChild(toyThumbnail);
         });
     }
