@@ -22,12 +22,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             const toyThumbnail = document.createElement('div');
             toyThumbnail.classList.add('toy-thumbnail');
             const url_firebasestorage = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/';
-            const thumbnail = url_firebasestorage + 'toys%2F' + toy.reference + '%2F001.jpg?alt=media';
+            const thumbnail = url_firebasestorage + 'toys%2F' + toy + '%2F001.jpg?alt=media';
             const manualIcon = url_firebasestorage + 'icons%2FManual.jpg?alt=media';
             const completIcon = url_firebasestorage + 'icons%2F' + toy.weapon + '.jpg?alt=media';
             const weaponCompletIcon = url_firebasestorage + 'icons%2F' + toy.complete + '.jpg?alt=media';
             const allianceIcon = url_firebasestorage + 'icons%2F' + toy.alliance + '.jpg?alt=media';
-            const pdfUrl = url_firebasestorage + 'toys%2F' + toy.reference + '%2Fnotice.pdf';
+            const pdfUrl = url_firebasestorage + 'toys%2F' + toy + '%2Fnotice.pdf';
 
             let manual_display = "none";
             // Use an async function inside to handle the await fetch for checking PDF availability
