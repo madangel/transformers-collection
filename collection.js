@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const sortOptions = document.getElementById('sortOptions');
     const searchBar = document.getElementById('searchBar');
     const filterAlliance = document.getElementById('filterAlliance');
-    const filterCollection = document.getElementById('filterCollection');
     const toggleMenu = document.getElementById('toggleMenu');
     const menu = document.getElementById('menu');
 
@@ -15,13 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Fetch toy data from Firebase
     const toys = await fetchData('https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys.json');
 
-    // Fetch collections data from Firebase
-    const collections = await fetchData('https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/collections.json');
-
-    // Populate the collection filter dropdown with collections from Firebase
-    populateCollectionFilter(collections);
-
-    // Function to display toys on the page (keeping the original thumbnail styling)
+    // Display toys on the page (keeping the original thumbnail styling)
     function displayToys(toys) {
         toyList.innerHTML = ''; // Clear existing list of toys
         for (const toyId in toys) {
@@ -68,7 +61,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // Function to fetch data from a given URL (to be used for toys and collections)
+    // Function to fetch data from a given URL (to be used for toys)
     async function fetchData(url) {
         try {
             const response = await fetch(url);
@@ -76,17 +69,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         } catch (error) {
             console.error('Error fetching data:', error);
             return {};
-        }
-    }
-
-    // Populate the collection filter dropdown
-    function populateCollectionFilter(collections) {
-        filterCollection.innerHTML = '<option value="all">All</option>'; // Reset and add default option
-        for (const collection of collections) {
-            const option = document.createElement('option');
-            option.value = collection;
-            option.textContent = collection;
-            filterCollection.appendChild(option);
         }
     }
 
@@ -109,12 +91,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         displayToys(filteredToys);
     }
 
-    // Function to filter toys based on alliance and collection
-    function filterToys(alliance, collection) {
+    // Function to filter toys based on alliance only
+    function filterToys(alliance) {
         const filteredToys = Object.values(toys).filter(toy => {
             const matchesAlliance = alliance === 'all' || toy.alliance === alliance;
-            const matchesCollection = collection === 'all' || toy.collection === collection;
-            return matchesAlliance && matchesCollection;
+            return matchesAlliance;
         });
         displayToys(filteredToys);
     }
@@ -134,11 +115,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Event listener for filtering by alliance
     filterAlliance.addEventListener('change', () => {
-        filterToys(filterAlliance.value, filterCollection.value);
-    });
-
-    // Event listener for filtering by collection
-    filterCollection.addEventListener('change', () => {
-        filterToys(filterAlliance.value, filterCollection.value);
+        filterToys(filterAlliance.value);
     });
 });
