@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             const toyThumbnail = document.createElement('div');
             toyThumbnail.classList.add('toy-thumbnail');
             const url_firebasestorage = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/';
-            const thumbnail = url_firebasestorage + 'toys%2F' + toy.reference + '%2F001.jpg?alt=media';
+            const thumbnail1 = url_firebasestorage + 'toys%2F' + toy.reference + '%2F001.jpg?alt=media';
+            const thumbnail2 = url_firebasestorage + 'toys%2F' + toy.reference + '%2F002.jpg?alt=media';
             const manualIcon = url_firebasestorage + 'icons%2FManual.jpg?alt=media';
             const completIcon = url_firebasestorage + 'icons%2F' + toy.weapon + '.jpg?alt=media';
             const weaponCompletIcon = url_firebasestorage + 'icons%2F' + toy.complete + '.jpg?alt=media';
@@ -42,6 +43,38 @@ document.addEventListener('DOMContentLoaded', async () => {
             const pdfUrl = url_firebasestorage + 'toys%2F' + toy.reference + '%2Fnotice.pdf';
 
             let manual_display = "none";
+
+            // Create the thumbnail image element
+            const imgElement = document.createElement('img');
+            imgElement.src = thumbnail1; // Start with the first image
+            imgElement.alt = `${toy.reference}/001.jpg`;
+
+            // Set up swipe detection variables
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            // Detect touch start
+            imgElement.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            // Detect touch end and toggle the image
+            imgElement.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                toggleImage();
+            });
+ 
+            // Toggle between image 1 and image 2
+            function toggleImage() {
+                if (imageIndex === 1) {
+                    imgElement.src = thumbnail2;
+                    imageIndex = 2;
+                } else {
+                    imgElement.src = thumbnail1;
+                    imageIndex = 1;
+                }
+            } 
+
             // Use an async function inside to handle the await fetch for checking PDF availability
             (async () => {
                 try {
