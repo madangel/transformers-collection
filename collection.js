@@ -92,18 +92,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             })();
 
             toyThumbnail.addEventListener('click', () => {
-                if (imageIndex === 1) {
-                    document.getElementById(`${toy.reference}`).src = thumbnail2;
-                    document.getElementById(`${toy.reference}`).alt = `${toy.reference}/001.jpg`;
-                    imageIndex = 2;
-                } else {
-                    document.getElementById(`${toy.reference}`).src = thumbnail1;
-                    document.getElementById(`${toy.reference}`).alt = `${toy.reference}/002.jpg`;
-                    imageIndex = 1;
-                }
-                toyThumbnail.appendChild(imgElement);
-                console.log('Image clicked' + imageIndex);
-                //window.location.href = `description.html?id=${toy.reference}`;
+                window.location.href = `description.html?id=${toy.reference}`;
             });
             toyList.appendChild(toyThumbnail);
         });
