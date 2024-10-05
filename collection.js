@@ -32,12 +32,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             let manual_display = "none";
 
-            // Create the thumbnail image element
-            const imgElement = document.createElement('img');
-            imgElement.id = `${toy.reference}`;
-            imgElement.src = thumbnail1; // Start with the first image
-            imgElement.alt = `${toy.reference}/001.jpg`;
-
             // Use an async function inside to handle the await fetch for checking PDF availability
             (async () => {
                 try {
@@ -49,6 +43,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                     console.warn('Error checking PDF:', error);
                     manual_display = "none";
                 }
+                // Create the thumbnail image element
+                const imgElement = document.createElement('img');
+                imgElement.id = `${toy.reference}`;
+                imgElement.src = thumbnail1; // Start with the first image
+                imgElement.alt = `${toy.reference}/001.jpg`;
+                
                 // Update the inner HTML after the PDF check
                 toyThumbnail.innerHTML = `
                     <p>${toy.name}</p> 
