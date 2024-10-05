@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 // Update the inner HTML after the PDF check
                 toyThumbnail.innerHTML = `
                     <p>${toy.name}</p> 
-                    <p>${toy.reference}</p> 
                     <img src="${thumbnail}" alt="${toy.reference}/001.jpg">
                     <div class="icons">
                         <img src="${manualIcon}" alt="Manual" class="icon" style="display: ${manual_display};"/>
@@ -75,7 +74,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Function to sort toys based on a selected criteria
     function sortToys(criteria) {
-        const sortedToys = Object.values(toys).sort((a, b) => a[criteria].localeCompare(b[criteria]));
+        const sortedToys = Object.values(toys).sort((a, b) => {
+            // Check if the criteria value is a string
+            if (typeof a[criteria] === 'string' && typeof b[criteria] === 'string') {
+                return a[criteria].localeCompare(b[criteria]);
+            } else {
+                // For numbers or undefined values, do a regular comparison
+                return (a[criteria] || 0) - (b[criteria] || 0);
+            }
+        });
         const sortedToysObj = {};
         sortedToys.forEach(toy => {
             const key = Object.keys(toys).find(key => toys[key] === toy);
