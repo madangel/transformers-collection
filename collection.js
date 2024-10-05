@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     document.getElementById(`${toy.reference}`).alt = `${toy.reference}/002.jpg`;
                     imageIndex = 1;
                 }
+                console.log('Image clicked XXXXXXXXXXXXXXX' + imageIndex);
                 e.stopPropagation(); // Stops the event from propagating to parent elements
             });
 
@@ -94,7 +95,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (imageIndex === 1) {
                     document.getElementById(`${toy.reference}`).src = thumbnail2;
                     document.getElementById(`${toy.reference}`).alt = `${toy.reference}/001.jpg`;
-                    document.getElementById(`${toy.reference}`) = 2;
+                    imageIndex = 2;
                 } else {
                     document.getElementById(`${toy.reference}`).src = thumbnail1;
                     document.getElementById(`${toy.reference}`).alt = `${toy.reference}/002.jpg`;
