@@ -127,3 +127,11 @@ a {
 #searchBar {
     width: 300px; /* Adjust the width of the search bar */
 }
+
+/* Style for labels in the filter container */
+#filter-container label,
+#search-container label {
+    font-size: 12px; /* Reduce font size */
+    font-weight: normal; /* Optional: Change font weight to normal */
+    margin-right: 5px; /* Space between label and select/input */
+}
