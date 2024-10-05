@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             imageIndex = 1;
 
             // Change Picture
-            imgElement.addEventListener('click', (e) => {
-                if (imageIndex === 1) {
+            document.getElementById(`${toy.reference}`).addEventListener('click', (e) => {
+                if (document.getElementById(`${toy.reference}`).alt === `${toy.reference}/002.jpg`) {
                     document.getElementById(`${toy.reference}`).src = thumbnail2;
                     document.getElementById(`${toy.reference}`).alt = `${toy.reference}/001.jpg`;
                     imageIndex = 2;
