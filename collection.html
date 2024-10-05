@@ -17,31 +17,37 @@
             }
         }, { passive: false });
     </script>
-    <h1>My Collection of Transformers</h1>
-    <!-- Collapsible Menu -->
-    <button id="toggleMenu">Show/Hide Menu</button>
+    <h1>Transformers</h1>
+    <!-- Toggle Menu Button (Centered) -->
+    <div class="menu-toggle-container">
+        <button id="toggleMenu">Show Menu &#9660;</button>
+    </div>
     <div id="menu" style="display:none;">
-        <!-- Sorting Options -->
-        <label for="sortOptions">Sort By:</label>
-        <select id="sortOptions">
-            <option value="reference">Sort by Reference</option>
-            <option value="name">Sort by Name</option>
-            <option value="collection">Sort by Collection</option>
-        </select>
+        <!-- Sorting and Filtering Options Container -->
+        <div id="filter-container" style="display: flex; gap: 10px; align-items: center;">
+            <!-- Sorting Options -->
+            <label for="sortOptions">Sort By:</label>
+            <select id="sortOptions">
+                <option value="reference">Reference</option>
+                <option value="name">Name</option>
+                <option value="collection">Collection</option>
+            </select>
 
-        <!-- Search Bar -->
-        <label for="searchBar">Search:</label>
-        <input type="text" id="searchBar" placeholder="Search for a toy">
-
-        <!-- Filter by Alliance -->
-        <label for="filterAlliance">Filter by Alliance:</label>
-        <select id="filterAlliance">
-            <option value="all">All</option>
-            <option value="Autobot">Autobot</option>
-            <option value="Decepticon">Decepticon</option>
-            <option value="Terrorcon">Terrorcon</option>
-            <option value="Maximal">Maximal</option>
-        </select>
+            <!-- Filter by Alliance -->
+            <label for="filterAlliance">Filter By:</label>
+            <select id="filterAlliance">
+                <option value="all">All</option>
+                <option value="Autobot">Autobot</option>
+                <option value="Decepticon">Decepticon</option>
+                <option value="Terrorcon">Terrorcon</option>
+                <option value="Maximal">Maximal</option>
+            </select>
+        </div>
+        <div id="search-container"></div>
+            <!-- Search Bar -->
+            <label for="searchBar">Search:</label>
+            <input type="text" id="searchBar" placeholder="Search for a toy">
+        </div>
     </div>
 
     <!-- Container for displaying toy list -->

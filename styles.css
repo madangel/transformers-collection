@@ -83,3 +83,47 @@ a {
     height: 20px;
 }
 
+/* Center the toggle menu button */
+.menu-toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0; /* Add some space around the button */
+}
+
+/* Style for the toggle button */
+#toggleMenu {
+    background-color: #007bff; /* Button color */
+    color: white; /* Text color */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#toggleMenu:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+
+/* Styling for the filter and search containers */
+#filter-container {
+    display: flex;
+    gap: 20px; /* Spacing between elements */
+    align-items: center; /* Vertical alignment */
+}
+
+#search-container {
+    margin-top: 10px; /* Spacing between filter and search */
+}
+
+/* Additional styles for better UI */
+#sortOptions, #filterAlliance, #searchBar {
+    padding: 5px;
+    font-size: 14px;
+}
+
+#searchBar {
+    width: 300px; /* Adjust the width of the search bar */
+}

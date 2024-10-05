@@ -6,9 +6,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     const toggleMenu = document.getElementById('toggleMenu');
     const menu = document.getElementById('menu');
 
-    // Toggle the display of the menu
+    // Toggle the display of the menu and update the button icon
     toggleMenu.addEventListener('click', () => {
-        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+        if (menu.style.display === 'none') {
+            menu.style.display = 'block';
+            toggleMenu.innerHTML = 'Hide Menu &#9650;'; // Change to "Hide Menu" with an upward arrow
+        } else {
+            menu.style.display = 'none';
+            toggleMenu.innerHTML = 'Show Menu &#9660;'; // Change to "Show Menu" with a downward arrow
+        }
     });
 
     // Fetch toy data from Firebase
@@ -44,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         manual_display = "block";
                     }
                 } catch (error) {
-                    console.error('Error checking PDF:', error);
+                    console.warn('Error checking PDF:', error);
                     manual_display = "none";
                 }
                 // Update the inner HTML after the PDF check
@@ -82,9 +88,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     function sortToys(criteria) {
         console.log(`Sorting by criteria: ${criteria}`);
         const sortedToys = toysArray.slice().sort((a, b) => {
-            // Log the values being compared
-            console.log(`Comparing: a[${criteria}] = ${a[criteria]}, b[${criteria}] = ${b[criteria]}`);
-
             // Check if the criteria value is a string
             if (typeof a[criteria] === 'string' && typeof b[criteria] === 'string') {
                 return a[criteria].localeCompare(b[criteria]);
@@ -93,7 +96,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return (a[criteria] || 0) - (b[criteria] || 0);
             }
         });
-        console.log("Sorted toys:", sortedToys); // Log the sorted toys
         displayToys(sortedToys); // Use the sorted array to display the toys
     }
 
