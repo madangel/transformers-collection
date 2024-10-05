@@ -88,9 +88,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 `;
             })();
 
-            toyThumbnail.addEventListener('click', () => {
-                window.location.href = `description.html?id=${toy.reference}`;
-            });
             toyList.appendChild(toyThumbnail);
         });
     }
