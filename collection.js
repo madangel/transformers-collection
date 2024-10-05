@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             imgElement.alt = `${toy.reference}/001.jpg`;
 
             // Change Picture
-            imgElement.addEventListener('click', () => {
+            imgElement.addEventListener('click', (e) => {
                 if (imageIndex === 1) {
                     imgElement.src = thumbnail2;
                     imgElement.alt = `${toy.reference}/001.jpg`;
