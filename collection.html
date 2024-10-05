@@ -1,24 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Collection of Transformers</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <script>
-            document.addEventListener('contextmenu', function (e) {
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Collection of Transformers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+        document.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
                 e.preventDefault();
-            });
-            document.addEventListener('touchstart', function(e) {
-                if (e.touches.length > 1) {
-                    e.preventDefault();
-                }
-            }, { passive: false });
-        </script>
-        <h1>My Collection of Transformers</h1>
-        <div id="toyList"></div>
-        <script src="collection.js"></script>
-    </body>
+            }
+        }, { passive: false });
+    </script>
+    <h1>My Collection of Transformers</h1>
+    <!-- Collapsible Menu -->
+    <button id="toggleMenu">Show/Hide Menu</button>
+    <div id="menu" style="display:none;">
+        <!-- Sorting Options -->
+        <label for="sortOptions">Sort By:</label>
+        <select id="sortOptions">
+            <option value="reference">Sort by Reference</option>
+            <option value="name">Sort by Name</option>
+            <option value="alliance">Sort by Alliance</option>
+            <option value="collection">Sort by Collection</option>
+        </select>
+
+        <!-- Search Bar -->
+        <label for="searchBar">Search:</label>
+        <input type="text" id="searchBar" placeholder="Search for a toy">
+
+        <!-- Filters -->
+        <label for="filterAlliance">Filter by Alliance:</label>
+        <select id="filterAlliance">
+            <option value="all">All</option>
+            <option value="Autobot">Autobot</option>
+            <option value="Decepticon">Decepticon</option>
+        </select>
+
+        <label for="filterCollection">Filter by Collection:</label>
+        <select id="filterCollection">
+            <option value="all">All</option>
+        </select>
+    </div>
+
+    <!-- Container for displaying toy list -->
+    <div id="toyList"></div>
+
+    <script src="collection.js"></script>
+</body>
 </html>
