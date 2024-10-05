@@ -6,6 +6,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     const toggleMenu = document.getElementById('toggleMenu');
     const menu = document.getElementById('menu');
 
+    // Global touch event listeners to diagnose issues
+    document.addEventListener('touchstart', function(e) {
+        console.log('Global touchstart detected');
+    }, { passive: false });
+
+    document.addEventListener('touchmove', function(e) {
+        console.log('Global touchmove detected');
+    }, { passive: false });
+
+    document.addEventListener('touchend', function(e) {
+        console.log('Global touchend detected');
+    }, { passive: false });
+
     // Toggle the display of the menu and update the button icon
     toggleMenu.addEventListener('click', () => {
         if (menu.style.display === 'none') {
@@ -52,17 +65,29 @@ document.addEventListener('DOMContentLoaded', async () => {
             let touchStartX = 0;
             let touchEndX = 0;
 
-            // Detect touch start
+            // Detect touchstart
             imgElement.addEventListener('touchstart', (e) => {
                 touchStartX = e.changedTouches[0].screenX;
+                console.log('Element touchstart detected, position:', touchStartX); // Log touch start position
             });
 
-            // Detect touch end and toggle the image
+            // Detect touchend and determine swipe direction
             imgElement.addEventListener('touchend', (e) => {
                 touchEndX = e.changedTouches[0].screenX;
-                toggleImage();
+                console.log('Element touchend detected, position:', touchEndX); // Log touch end position
+                handleSwipe(); // Call function to handle swipe
             });
- 
+
+            // Function to handle swipe detection
+            function handleSwipe() {
+                const swipeDistance = touchEndX - touchStartX;
+                console.log('swipe distance:', swipeDistance); // Log swipe distance
+
+                if (swipeDistance > 50 || swipeDistance < -50) { 
+                    toggleImage();
+                }
+            }
+
             // Toggle between image 1 and image 2
             function toggleImage() {
                 if (imageIndex === 1) {
@@ -72,7 +97,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     imgElement.src = thumbnail1;
                     imageIndex = 1;
                 }
-            } 
+                console.log('Image toggled, current image index:', imageIndex); // Log image index
+            }
 
             // Use an async function inside to handle the await fetch for checking PDF availability
             (async () => {
