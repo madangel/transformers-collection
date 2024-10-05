@@ -8,15 +8,20 @@
 </head>
 <body>
     <script>
+        // Disable the context menu (right-click) on the document
         document.addEventListener('contextmenu', function (e) {
-            e.preventDefault();
+            e.preventDefault(); // Prevents the default right-click menu from appearing
         });
+    
+        // Disable default behavior only for multitouch (more than 2 touch points)
         document.addEventListener('touchstart', function(e) {
-            if (e.touches.length > 1) {
+            // If more than two fingers are used, prevent default behavior (e.g., pinch-to-zoom)
+            if (e.touches.length > 2) {
                 e.preventDefault();
             }
         }, { passive: false });
-    </script>
+    </script>    
+    
     <h1>Transformers</h1>
     <!-- Toggle Menu Button (Centered) -->
     <div class="menu-toggle-container">
