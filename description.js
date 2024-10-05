@@ -1,13 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var url_storage = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'
-    var toyNameElement = document.getElementById('toyName');
-    var toyCollectionElement = document.getElementById('toyCollection');
-    var toyLevelElement = document.getElementById('toyLevel');
-    var toyReferenceElement = document.getElementById('toyReference');
-    var toyPhotosElement = document.getElementById('toyPhotos');
-    var pdfViewerElement = document.getElementById('pdfViewer');
-    var pdfLinkElement = document.getElementById('pdfLink');
-    var pdfContainerElement = document.getElementById('pdfContainer');
+    const url_storage = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/toys%2F'
+    const toyNameElement = document.getElementById('toyName');
+    const toyCollectionElement = document.getElementById('toyCollection');
+    const toyLevelElement = document.getElementById('toyLevel');
+    const toyReferenceElement = document.getElementById('toyReference');
+    const toyPhotosElement = document.getElementById('toyPhotos');
+    const pdfViewerElement = document.getElementById('pdfViewer');
+    const pdfLinkElement = document.getElementById('pdfLink');
+    const pdfContainerElement = document.getElementById('pdfContainer');
+
+    toyNameElement.addEventListener('click', function (e) {
+        if (history.length > 1) {
+            history.back();
+        } else {
+            window.location.href = 'collection.html';
+        }
+    });
 
     if (pdfLinkElement && pdfContainerElement) {
         pdfLinkElement.addEventListener('click', function() {
