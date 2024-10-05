@@ -43,8 +43,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
                 // Update the inner HTML after the PDF check
                 toyThumbnail.innerHTML = `
-                    <p>${toy.reference} - ${toy.name}</p> 
-                    <img src="${thumbnail}" alt="${toyId}/001.jpg">
+                    <p>${toy.name}</p> 
+                    <p>${toy.reference}</p> 
+                    <img src="${thumbnail}" alt="${toy.toyId}/001.jpg">
                     <div class="icons">
                         <img src="${manualIcon}" alt="Manual" class="icon" style="display: ${manual_display};"/>
                         <img src="${weaponCompletIcon}" alt="Weapon Complete" class="icon" />
