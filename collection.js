@@ -65,13 +65,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 // Change Picture
                 document.getElementById(`${toy.reference}`).addEventListener('click', (e) => {
-                    e.target.src = "";
-                    if (e.target.alt == `${toy.reference}/002.jpg`) {
+                    if (e.target.alt == `${toy.reference}/001.jpg`) {
                         e.target.src = thumbnail2 + "&" + new Date().getTime();
-                        e.target.alt = `${toy.reference}/001.jpg`;
+                        e.target.alt = `${toy.reference}/002.jpg`;
                     } else {
                         e.target.src = thumbnail1 + "&" + new Date().getTime();
-                        e.target.alt = `${toy.reference}/002.jpg`;
+                        e.target.alt = `${toy.reference}/001.jpg`;
                     }
                     e.stopPropagation(); // Stops the event from propagating to parent elements
                 });
