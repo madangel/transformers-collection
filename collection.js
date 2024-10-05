@@ -63,6 +63,34 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                 `;
 
+                // Set up swipe detection variables
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                // Detect touch start
+                document.getElementById(`${toy.reference}`).addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+
+                // Detect touch end and toggle the image
+                document.getElementById(`${toy.reference}`).addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    toggleImage(e.target);
+                });
+
+                // Toggle between image 1 and image 2
+                function toggleImage(imgElement) {
+                    if (imgElement.alt === `${toy.reference}/002.jpg`) {
+                        imgElement.src = thumbnail2;
+                        imgElement.alt = `${toy.reference}/001.jpg`;
+                    } else {
+                        imgElement.src = thumbnail1;
+                        imgElement.alt = `${toy.reference}/002.jpg`;
+                    }
+                    console.log('touchstart detected');
+                    e.stopPropagation(); // Stops the event from propagating to parent elements
+                }
+
                 // Change Picture
                 document.getElementById(`${toy.reference}`).addEventListener('click', (e) => {
                     if (e.target.alt === `${toy.reference}/002.jpg`) {
