@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 imgElement.id = `${toy.reference}`;
                 imgElement.src = thumbnail1; // Start with the first image
                 imgElement.alt = `${toy.reference}/001.jpg`;
-
+                
                 // Update the inner HTML after the PDF check
                 toyThumbnail.innerHTML = `
                     <p>${toy.name}</p> 
@@ -64,7 +64,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 `;
 
                 // Change Picture
-                imgElement.addEventListener('click', (e) => {
+                document.getElementById(`${toy.reference}`).addEventListener('click', (e) => {
+                    e.target.src = "";
                     if (e.target.alt == `${toy.reference}/002.jpg`) {
                         e.target.src = thumbnail2 + "&" + new Date().getTime();
                         e.target.alt = `${toy.reference}/001.jpg`;
