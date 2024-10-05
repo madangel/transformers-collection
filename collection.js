@@ -6,17 +6,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const toggleMenu = document.getElementById('toggleMenu');
     const menu = document.getElementById('menu');
 
-    // Toggle the display of the menu and update the button icon
-    toggleMenu.addEventListener('click', () => {
-        if (menu.style.display === 'none') {
-            menu.style.display = 'block';
-            toggleMenu.innerHTML = 'Hide Menu &#9650;'; // Change to "Hide Menu" with an upward arrow
-        } else {
-            menu.style.display = 'none';
-            toggleMenu.innerHTML = 'Show Menu &#9660;'; // Change to "Show Menu" with a downward arrow
-        }
-    });
-
     // Fetch toy data from Firebase
     const toys = await fetchData('https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys.json');
 
@@ -136,9 +125,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         displayToys(filteredToys);
     }
 
-    // Initial display of all toys when the page loads
-    displayToys(toysArray);
-
     // Event listeners for sorting
     sortOptions.addEventListener('change', () => {
         sortToys(sortOptions.value);
@@ -153,4 +139,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     filterAlliance.addEventListener('change', () => {
         filterToys(filterAlliance.value);
     });
+
+    // Toggle the display of the menu and update the button icon
+    toggleMenu.addEventListener('click', () => {
+        if (menu.style.display === 'none') {
+            menu.style.display = 'block';
+            toggleMenu.innerHTML = 'Hide Menu &#9650;'; // Change to "Hide Menu" with an upward arrow
+        } else {
+            menu.style.display = 'none';
+            toggleMenu.innerHTML = 'Show Menu &#9660;'; // Change to "Show Menu" with a downward arrow
+        }
+    });
+
+    // Initial display of all toys when the page loads
+    displayToys(toysArray);
 });
