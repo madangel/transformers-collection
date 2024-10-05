@@ -88,6 +88,18 @@ document.addEventListener('DOMContentLoaded', async () => {
                 `;
             })();
 
+            toyThumbnail.addEventListener('click', () => {
+                if (imageIndex === 1) {
+                    imgElement.src = thumbnail2;
+                    imgElement.alt = `${toy.reference}/001.jpg`;
+                    imageIndex = 2;
+                } else {
+                    imgElement.src = thumbnail1;
+                    imgElement.alt = `${toy.reference}/002.jpg`;
+                    imageIndex = 1;
+                }
+                //window.location.href = `description.html?id=${toy.reference}`;
+            });
             toyList.appendChild(toyThumbnail);
         });
     }
