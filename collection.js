@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             imgElement.id = `${toy.reference}`;
             imgElement.src = thumbnail1; // Start with the first image
             imgElement.alt = `${toy.reference}/001.jpg`;
+            imageIndex = 1;
 
             // Use an async function inside to handle the await fetch for checking PDF availability
             (async () => {
@@ -75,7 +76,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 `;
 
                 // Change Picture
-                toyThumbnail.addEventListener('click', (e) => {
+                document.getElementById(`${toy.reference}`).addEventListener('click', (e) => {
                     if (document.getElementById(`${toy.reference}`).alt === `${toy.reference}/002.jpg`) {
                         document.getElementById(`${toy.reference}`).src = thumbnail2;
                         document.getElementById(`${toy.reference}`).alt = `${toy.reference}/001.jpg`;
