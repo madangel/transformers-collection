@@ -66,13 +66,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             let touchEndX = 0;
 
             // Detect touchstart
-            imgElement.addEventListener('touchstart', (e) => {
+            toyThumbnail.addEventListener('touchstart', (e) => {
                 touchStartX = e.changedTouches[0].screenX;
                 console.log('Element touchstart detected, position:', touchStartX); // Log touch start position
             });
 
             // Detect touchend and determine swipe direction
-            imgElement.addEventListener('touchend', (e) => {
+            toyThumbnail.addEventListener('touchend', (e) => {
                 touchEndX = e.changedTouches[0].screenX;
                 console.log('Element touchend detected, position:', touchEndX); // Log touch end position
                 handleSwipe(); // Call function to handle swipe
