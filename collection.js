@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     imgElement.alt = `${toy.reference}/002.jpg`;
                     imageIndex = 1;
                 }
+                toyThumbnail.appendChild(imgElement);
                 console.log('Image clicked' + imageIndex);
                 //window.location.href = `description.html?id=${toy.reference}`;
             });
