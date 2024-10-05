@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 toyThumbnail.innerHTML = `
                     <p>${toy.name}</p> 
                     <p>${toy.reference}</p> 
-                    <img src="${thumbnail}" alt="${toy.toyId}/001.jpg">
+                    <img src="${thumbnail}" alt="${toy.reference}/001.jpg">
                     <div class="icons">
                         <img src="${manualIcon}" alt="Manual" class="icon" style="display: ${manual_display};"/>
                         <img src="${weaponCompletIcon}" alt="Weapon Complete" class="icon" />
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             })();
 
             toyThumbnail.addEventListener('click', () => {
-                window.location.href = `description.html?id=${toyId}`;
+                window.location.href = `description.html?id=${toy.reference}`;
             });
             toyList.appendChild(toyThumbnail);
         }
