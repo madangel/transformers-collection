@@ -13,12 +13,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Fetch toy data from Firebase
     const toys = await fetchData('https://transformers-collection-default-rtdb.europe-west1.firebasedatabase.app/toys.json');
+    console.log("Fetched toys data:", toys); // Log the fetched toys data
+
+    // Convert the toys object to an array with an ID for each toy
+    const toysArray = Object.keys(toys).map(key => ({
+        id: key,
+        ...toys[key]
+    }));
 
     // Display toys on the page (keeping the original thumbnail styling)
     function displayToys(toys) {
         toyList.innerHTML = ''; // Clear existing list of toys
-        for (const toyId in toys) {
-            const toy = toys[toyId];
+        toys.forEach(toy => {
             const toyThumbnail = document.createElement('div');
             toyThumbnail.classList.add('toy-thumbnail');
             const url_firebasestorage = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/';
@@ -58,7 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 window.location.href = `description.html?id=${toy.reference}`;
             });
             toyList.appendChild(toyThumbnail);
-        }
+        });
     }
 
     // Function to fetch data from a given URL (to be used for toys)
@@ -74,7 +80,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Function to sort toys based on a selected criteria
     function sortToys(criteria) {
-        const sortedToys = Object.values(toys).sort((a, b) => {
+        console.log(`Sorting by criteria: ${criteria}`);
+        const sortedToys = toysArray.slice().sort((a, b) => {
             // Log the values being compared
             console.log(`Comparing: a[${criteria}] = ${a[criteria]}, b[${criteria}] = ${b[criteria]}`);
 
@@ -87,17 +94,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
         console.log("Sorted toys:", sortedToys); // Log the sorted toys
-        const sortedToysObj = {};
-        sortedToys.forEach(toy => {
-            const key = Object.keys(toys).find(key => toys[key] === toy);
-            sortedToysObj[key] = toy;
-        });
-        displayToys(sortedToysObj);
+        displayToys(sortedToys); // Use the sorted array to display the toys
     }
 
     // Function to search toys by their name
     function searchToys(query) {
-        const filteredToys = Object.values(toys).filter(toy =>
+        console.log(`Searching for query: ${query}`);
+        const filteredToys = toysArray.filter(toy =>
             toy.name.toLowerCase().includes(query.toLowerCase())
         );
         displayToys(filteredToys);
@@ -105,7 +108,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Function to filter toys based on alliance only
     function filterToys(alliance) {
-        const filteredToys = Object.values(toys).filter(toy => {
+        console.log(`Filtering by alliance: ${alliance}`);
+        const filteredToys = toysArray.filter(toy => {
             const matchesAlliance = alliance === 'all' || toy.alliance === alliance;
             return matchesAlliance;
         });
@@ -113,7 +117,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // Initial display of all toys when the page loads
-    displayToys(toys);
+    displayToys(toysArray);
 
     // Event listeners for sorting
     sortOptions.addEventListener('change', () => {
