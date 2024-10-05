@@ -50,21 +50,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             imgElement.alt = `${toy.reference}/001.jpg`;
             imageIndex = 1;
 
-            // Change Picture
-            document.getElementById(`${toy.reference}`).addEventListener('click', (e) => {
-                if (document.getElementById(`${toy.reference}`).alt === `${toy.reference}/002.jpg`) {
-                    document.getElementById(`${toy.reference}`).src = thumbnail2;
-                    document.getElementById(`${toy.reference}`).alt = `${toy.reference}/001.jpg`;
-                    imageIndex = 2;
-                } else {
-                    document.getElementById(`${toy.reference}`).src = thumbnail1;
-                    document.getElementById(`${toy.reference}`).alt = `${toy.reference}/002.jpg`;
-                    imageIndex = 1;
-                }
-                console.log('Image clicked XXXXXXXXXXXXXXX' + imageIndex);
-                e.stopPropagation(); // Stops the event from propagating to parent elements
-            });
-
             // Use an async function inside to handle the await fetch for checking PDF availability
             (async () => {
                 try {
@@ -89,6 +74,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <img src="${allianceIcon}" alt="Alliance" class="icon" />
                     </div>
                 `;
+
+                // Change Picture
+                document.getElementById(`${toy.reference}`).addEventListener('click', (e) => {
+                    if (document.getElementById(`${toy.reference}`).alt === `${toy.reference}/002.jpg`) {
+                        document.getElementById(`${toy.reference}`).src = thumbnail2;
+                        document.getElementById(`${toy.reference}`).alt = `${toy.reference}/001.jpg`;
+                        imageIndex = 2;
+                    } else {
+                        document.getElementById(`${toy.reference}`).src = thumbnail1;
+                        document.getElementById(`${toy.reference}`).alt = `${toy.reference}/002.jpg`;
+                        imageIndex = 1;
+                    }
+                    console.log('Image clicked XXXXXXXXXXXXXXX' + imageIndex);
+                    e.stopPropagation(); // Stops the event from propagating to parent elements
+                });
             })();
 
             toyThumbnail.addEventListener('click', () => {
