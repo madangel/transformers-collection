@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             // Create the thumbnail image element
             const imgElement = document.createElement('img');
+            imgElement.id = `${toy.reference}`;
             imgElement.src = thumbnail1; // Start with the first image
             imgElement.alt = `${toy.reference}/001.jpg`;
             imageIndex = 1;
@@ -52,12 +53,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Change Picture
             imgElement.addEventListener('click', (e) => {
                 if (imageIndex === 1) {
-                    imgElement.src = thumbnail2;
-                    imgElement.alt = `${toy.reference}/001.jpg`;
+                    document.getElementById(`${toy.reference}`).src = thumbnail2;
+                    document.getElementById(`${toy.reference}`).alt = `${toy.reference}/001.jpg`;
                     imageIndex = 2;
                 } else {
-                    imgElement.src = thumbnail1;
-                    imgElement.alt = `${toy.reference}/002.jpg`;
+                    document.getElementById(`${toy.reference}`).src = thumbnail1;
+                    document.getElementById(`${toy.reference}`).alt = `${toy.reference}/002.jpg`;
                     imageIndex = 1;
                 }
                 e.stopPropagation(); // Stops the event from propagating to parent elements
@@ -91,12 +92,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             toyThumbnail.addEventListener('click', () => {
                 if (imageIndex === 1) {
-                    imgElement.src = thumbnail2;
-                    imgElement.alt = `${toy.reference}/001.jpg`;
-                    imageIndex = 2;
+                    document.getElementById(`${toy.reference}`).src = thumbnail2;
+                    document.getElementById(`${toy.reference}`).alt = `${toy.reference}/001.jpg`;
+                    document.getElementById(`${toy.reference}`) = 2;
                 } else {
-                    imgElement.src = thumbnail1;
-                    imgElement.alt = `${toy.reference}/002.jpg`;
+                    document.getElementById(`${toy.reference}`).src = thumbnail1;
+                    document.getElementById(`${toy.reference}`).alt = `${toy.reference}/002.jpg`;
                     imageIndex = 1;
                 }
                 toyThumbnail.appendChild(imgElement);
