@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     imgElement.alt = `${toy.reference}/002.jpg`;
                     imageIndex = 1;
                 }
+                e.stopPropagation(); // Stops the event from propagating to parent elements
             });
 
             // Use an async function inside to handle the await fetch for checking PDF availability
