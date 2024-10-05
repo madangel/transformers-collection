@@ -115,10 +115,20 @@ a {
 }
 
 #search-container {
+    font-size: 12px; /* Reduce font size */
     display: flex; /* Use flexbox to align elements on the same line */
     align-items: center; /* Vertically align label and input */
     width: 100%; /* Take the full width */
     margin-top: 10px; /* Add some space above the search bar */
+    margin-right: 2px; /* Space between label and select/input */
+}
+
+/* Style for labels in the filter container */
+#filter-container label {
+    font-size: 12px; /* Reduce font size */
+    font-weight: normal; /* Optional: Change font weight to normal */
+    width: 100%; /* Take the full width */
+    margin-right: 2px; /* Space between label and select/input */
 }
 
 /* Additional styles for better UI */
@@ -133,12 +143,4 @@ a {
     border: 1px solid #ddd;
     border-radius: 4px;
     width: auto; /* Override fixed width */
-}
-
-/* Style for labels in the filter container */
-#filter-container label,
-#search-container label {
-    font-size: 12px; /* Reduce font size */
-    font-weight: normal; /* Optional: Change font weight to normal */
-    margin-right: 5px; /* Space between label and select/input */
 }
