@@ -140,7 +140,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Function to display or hide the clear button based on input value
     function toggleClearButton() {
-        console.log("Current search value:", searchBar.value);
         if (searchBar.value) {
             searchContainer.classList.add('has-text'); // Show the clear button
             clearButton.style.display = 'block'; // Ensure the button is visible

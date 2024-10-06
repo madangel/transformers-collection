@@ -116,6 +116,17 @@ a {
 }
 
 /* Style for labels in the menu */
+#menu  {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    font-size: 10px; /* Reduce font size */
+    width: 90%; /* Take the full width */
+    margin-inline: 20px; 
+}
+
+/* Style for labels in the menu */
 #menu label {
     font-size: 10px; /* Reduce font size */
     font-weight: normal; /* Optional: Change font weight to normal */
