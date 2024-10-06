@@ -142,9 +142,10 @@ a {
     font-size: 12px; /* Reduce font size */
     display: flex; /* Use flexbox to align elements on the same line */
     align-items: center; /* Vertically align label and input */
-    width: 100%; /* Take the full width */
+    width: 94%; /* Take the full width */
     margin-top: 10px; /* Add some space above the search bar */
-    margin-right: 2px; /* Space between label and select/input */
+    margin-right: 20px;
+    margin-left: 20px; 
 }
 
 /* Style for the search input */
@@ -152,13 +153,13 @@ a {
     flex-grow: 1; /* Allow the input to take up the remaining space */
     border: 1px solid #ddd;
     border-radius: 4px;
-    width: auto; /* Override fixed width */
+    width: 100%; /* Override fixed width */
 }
 
 /* Style for the clear button (cross) */
 .clear-button {
     position: absolute;
-    right: 10px; /* Position it inside the search container */
+    right: 50px; /* Position it inside the search container */
     background: none;
     border: none;
     font-size: 18px; /* Make the cross larger */
