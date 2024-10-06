@@ -20,6 +20,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     let sortCriteria = '';
     let allianceFilter = 'all';
 
+    let filteredToys = [];
+    if (toys && typeof toys === 'object') {
+        filteredToys = Object.values(toys);
+    } else {
+        console.error("The toys object is not defined or is null:", toys);
+        // Handle the error by displaying a message or returning early
+        return;
+    }
+    
     // Display toys on the page (keeping the original thumbnail styling)
     function displayToys(toys) {
         // Filter and sort toys based on the current values of search, sort, and filter options
@@ -42,7 +51,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Display the filtered and sorted toys
         toyList.innerHTML = ''; // Clear existing list of toys
-        toys.forEach(toy => {
+        filteredToys.forEach(toy => {
             const toyThumbnail = document.createElement('div');
             toyThumbnail.classList.add('toy-thumbnail');
             const url_firebasestorage = 'https://firebasestorage.googleapis.com/v0/b/transformers-collection.appspot.com/o/';
