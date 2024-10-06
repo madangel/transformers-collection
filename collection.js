@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const toggleMenu = document.getElementById('toggleMenu');
     const sortOptions = document.getElementById('sortOptions');
     const filterAlliance = document.getElementById('filterAlliance');
+    const searchContainer = document.getElementById('filter-container');
     const searchBar = document.getElementById('searchBar');
     const clearButton = document.getElementById('clearButton');
     const menu = document.getElementById('menu');
