@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const toyList = document.getElementById('toyList');
-    const sortOptions = document.getElementById('sortOptions');
-    const searchBar = document.getElementById('searchBar');
-    const filterAlliance = document.getElementById('filterAlliance');
     const toggleMenu = document.getElementById('toggleMenu');
+    const sortOptions = document.getElementById('sortOptions');
+    const filterAlliance = document.getElementById('filterAlliance');
+    const searchBar = document.getElementById('searchBar');
+    const clearButton = document.getElementById('clearButton');
     const menu = document.getElementById('menu');
 
     // Fetch toy data from Firebase
@@ -136,6 +137,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    // Function to display or hide the clear button based on input value
+    function toggleClearButton() {
+        if (searchBar.value) {
+            searchContainer.classList.add('has-text'); // Show the clear button
+        } else {
+            searchContainer.classList.remove('has-text'); // Hide the clear button
+        }
+    }
+    
     // Toggle the display of the menu and update the button icon
     toggleMenu.addEventListener('click', () => {
         if (menu.style.display === 'none') {
@@ -145,12 +155,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             menu.style.display = 'none';
             toggleMenu.innerHTML = '&#9660;'; // Change to "Show Menu" with a downward arrow
         }
-    });
-
-    // Update search query and re-display toys
-    searchBar.addEventListener('input', () => {
-        searchQuery = searchBar.value;
-        displayToys(); // Re-display toys based on the new search query
     });
 
     // Update sort criteria and re-display toys
@@ -163,6 +167,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     filterAlliance.addEventListener('change', () => {
         allianceFilter = filterAlliance.value;
         displayToys(); // Re-display toys based on the new filter value
+    });
+
+    // Update search query and re-display toys
+    searchBar.addEventListener('input', () => {
+        searchQuery = searchBar.value;
+        displayToys(); // Re-display toys based on the new search query
+    });
+
+    // Add event listener to the clear button to clear the search bar
+    clearButton.addEventListener('click', () => {
+        searchBar.value = ''; // Clear the input
+        toggleClearButton(); // Hide the clear button
+        //displayToys(); // Re-display the full toy list or clear the search results
     });
 
     // Initial display of all toys when the page loads

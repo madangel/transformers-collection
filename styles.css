@@ -154,3 +154,19 @@ a {
     border-radius: 4px;
     width: auto; /* Override fixed width */
 }
+
+/* Style for the clear button (cross) */
+.clear-button {
+    position: absolute;
+    right: 10px; /* Position it inside the search container */
+    background: none;
+    border: none;
+    font-size: 18px; /* Make the cross larger */
+    cursor: pointer;
+    display: none; /* Initially hidden */
+}
+
+/* Display the clear button when there is text in the search bar */
+.search-container.has-text .clear-button {
+    display: block;
+}
