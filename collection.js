@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     clearButton.addEventListener('click', () => {
         searchBar.value = ''; // Clear the input
         toggleClearButton(); // Hide the clear button
-        //displayToys(); // Re-display the full toy list or clear the search results
+        displayToys(); // Re-display the full toy list or clear the search results
     });
 
     // Initial display of all toys when the page loads
