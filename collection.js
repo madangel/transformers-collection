@@ -16,22 +16,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     }));
 
     // Variables to store the current search query, sort criteria, and filter value
+    let filteredToys = [];
     let searchQuery = '';
     let sortCriteria = '';
     let allianceFilter = 'all';
-
-    let filteredToys = [];
-    if (toys && typeof toys === 'object') {
-        filteredToys = Object.values(toys);
-    } else {
-        console.error("The toys object is not defined or is null:", toys);
-        // Handle the error by displaying a message or returning early
-        return;
-    }
     
     // Display toys on the page (keeping the original thumbnail styling)
     function displayToys(toys) {
         // Filter and sort toys based on the current values of search, sort, and filter options
+        if (toys && typeof toys === 'object') {
+            filteredToys = Object.values(toys);
+        } else {
+            console.error("The toys object is not defined or is null:", toys);
+            // Handle the error by displaying a message or returning early
+            return;
+        }
         if (searchQuery) {
             filteredToys = filteredToys.filter(toy => toy.name.toLowerCase().includes(searchQuery.toLowerCase()));
         }
