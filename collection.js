@@ -41,10 +41,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             visibleToys.sort((a, b) => {
                 let valA = a[sortCriteria];
                 let valB = b[sortCriteria];
-
-                // Check the types and values of the properties being compared
-                console.log(`Comparing ${sortCriteria}:`, valA, "vs", valB, `Type of valA: ${typeof valA}, Type of valB: ${typeof valB}`);
-
                 // Convert undefined or null values to empty strings or zero for comparison
                 if (valA === undefined || valA === null) valA = '';
                 if (valB === undefined || valB === null) valB = '';
@@ -144,10 +140,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     toggleMenu.addEventListener('click', () => {
         if (menu.style.display === 'none') {
             menu.style.display = 'block';
-            toggleMenu.innerHTML = 'Hide Menu &#9650;'; // Change to "Hide Menu" with an upward arrow
+            toggleMenu.innerHTML = '&#9650;'; // Change to "Hide Menu" with an upward arrow
         } else {
             menu.style.display = 'none';
-            toggleMenu.innerHTML = 'Show Menu &#9660;'; // Change to "Show Menu" with a downward arrow
+            toggleMenu.innerHTML = '&#9660;'; // Change to "Show Menu" with a downward arrow
         }
     });
 

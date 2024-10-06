@@ -83,6 +83,12 @@ a {
     height: 20px;
 }
 
+#title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Center the toggle menu button */
 .menu-toggle-container {
     display: flex;
@@ -111,6 +117,7 @@ a {
 #filter-container {
     display: flex;
     gap: 20px; /* Spacing between elements */
+    padding-right: 10px;
     align-items: center; /* Vertical alignment */
 }
 
@@ -123,11 +130,12 @@ a {
     margin-right: 2px; /* Space between label and select/input */
 }
 
-/* Style for labels in the filter container */
-#filter-container label {
-    font-size: 12px; /* Reduce font size */
+/* Style for labels in the menu */
+#menu label {
+    font-size: 10px; /* Reduce font size */
     font-weight: normal; /* Optional: Change font weight to normal */
     width: 100%; /* Take the full width */
+    padding-left: 10px;
     margin-right: 2px; /* Space between label and select/input */
 }
 
