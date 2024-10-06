@@ -15,8 +15,32 @@ document.addEventListener('DOMContentLoaded', async () => {
         ...toys[key]
     }));
 
+    // Variables to store the current search query, sort criteria, and filter value
+    let searchQuery = '';
+    let sortCriteria = '';
+    let allianceFilter = 'all';
+
     // Display toys on the page (keeping the original thumbnail styling)
     function displayToys(toys) {
+        // Filter and sort toys based on the current values of search, sort, and filter options
+        let filteredToys = Object.values(toys);
+        if (searchQuery) {
+            filteredToys = filteredToys.filter(toy => toy.name.toLowerCase().includes(searchQuery.toLowerCase()));
+        }
+        if (allianceFilter !== 'all') {
+            filteredToys = filteredToys.filter(toy => toy.alliance === allianceFilter);
+        }
+        if (sortCriteria) {
+            filteredToys.sort((a, b) => {
+                if (typeof a[sortCriteria] === 'string' && typeof b[sortCriteria] === 'string') {
+                    return a[sortCriteria].localeCompare(b[sortCriteria]);
+                } else {
+                    return (a[sortCriteria] || 0) - (b[sortCriteria] || 0);
+                }
+            });
+        }
+
+        // Display the filtered and sorted toys
         toyList.innerHTML = ''; // Clear existing list of toys
         toys.forEach(toy => {
             const toyThumbnail = document.createElement('div');
@@ -94,52 +118,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // Function to sort toys based on a selected criteria
-    function sortToys(criteria) {
-        const sortedToys = toysArray.slice().sort((a, b) => {
-            // Check if the criteria value is a string
-            if (typeof a[criteria] === 'string' && typeof b[criteria] === 'string') {
-                return a[criteria].localeCompare(b[criteria]);
-            } else {
-                // For numbers or undefined values, do a regular comparison
-                return (a[criteria] || 0) - (b[criteria] || 0);
-            }
-        });
-        displayToys(sortedToys); // Use the sorted array to display the toys
-    }
-
-    // Function to search toys by their name
-    function searchToys(query) {
-        const filteredToys = toysArray.filter(toy =>
-            toy.name.toLowerCase().includes(query.toLowerCase())
-        );
-        displayToys(filteredToys);
-    }
-
-    // Function to filter toys based on alliance only
-    function filterToys(alliance) {
-        const filteredToys = toysArray.filter(toy => {
-            const matchesAlliance = alliance === 'all' || toy.alliance === alliance;
-            return matchesAlliance;
-        });
-        displayToys(filteredToys);
-    }
-
-    // Event listeners for sorting
-    sortOptions.addEventListener('change', () => {
-        sortToys(sortOptions.value);
-    });
-
-    // Event listener for search bar input
-    searchBar.addEventListener('input', () => {
-        searchToys(searchBar.value);
-    });
-
-    // Event listener for filtering by alliance
-    filterAlliance.addEventListener('change', () => {
-        filterToys(filterAlliance.value);
-    });
-
     // Toggle the display of the menu and update the button icon
     toggleMenu.addEventListener('click', () => {
         if (menu.style.display === 'none') {
@@ -149,6 +127,24 @@ document.addEventListener('DOMContentLoaded', async () => {
             menu.style.display = 'none';
             toggleMenu.innerHTML = 'Show Menu &#9660;'; // Change to "Show Menu" with a downward arrow
         }
+    });
+
+    // Update search query and re-display toys
+    searchBar.addEventListener('input', () => {
+        searchQuery = searchBar.value;
+        displayToys(); // Re-display toys based on the new search query
+    });
+
+    // Update sort criteria and re-display toys
+    sortOptions.addEventListener('change', () => {
+        sortCriteria = sortOptions.value;
+        displayToys(); // Re-display toys based on the new sort criteria
+    });
+
+    // Update filter value and re-display toys
+    filterAlliance.addEventListener('change', () => {
+        allianceFilter = filterAlliance.value;
+        displayToys(); // Re-display toys based on the new filter value
     });
 
     // Initial display of all toys when the page loads
