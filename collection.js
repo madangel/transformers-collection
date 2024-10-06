@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             searchContainer.classList.remove('has-text'); // Hide the clear button
         }
     }
-    
+
     // Toggle the display of the menu and update the button icon
     toggleMenu.addEventListener('click', () => {
         if (menu.style.display === 'none') {
@@ -172,6 +172,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Update search query and re-display toys
     searchBar.addEventListener('input', () => {
         searchQuery = searchBar.value;
+        toggleClearButton();
         displayToys(); // Re-display toys based on the new search query
     });
 
