@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     }));
 
     // Variables to store the current search query, sort criteria, and filter value
+    let filteredToys = [];
     let searchQuery = '';
     let sortCriteria = '';
     let allianceFilter = 'all';
 
-    let filteredToys = [];
     if (toys && typeof toys === 'object') {
         filteredToys = Object.values(toys);
     } else {
@@ -39,10 +39,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         if (sortCriteria) {
             visibleToys.sort((a, b) => {
-                if (typeof a[sortCriteria] === 'string' && typeof b[sortCriteria] === 'string') {
-                    return a[sortCriteria].localeCompare(b[sortCriteria]);
+                let valA = a[sortCriteria];
+                let valB = b[sortCriteria];
+
+                // Convert undefined or null values to empty strings or zero for comparison
+                if (valA === undefined || valA === null) valA = '';
+                if (valB === undefined || valB === null) valB = '';
+
+                // Compare as strings if both are strings, otherwise compare as numbers
+                if (typeof valA === 'string' && typeof valB === 'string') {
+                    return valA.localeCompare(valB);
                 } else {
-                    return (a[sortCriteria] || 0) - (b[sortCriteria] || 0);
+                    return (valA || 0) - (valB || 0);
                 }
             });
         }
