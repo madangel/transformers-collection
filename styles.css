@@ -84,10 +84,10 @@ a {
 }
 
 #title {
-    display: flex;
+    font-size: clamp(16px, 2vw + 1rem, 36px); /* Adaptable font size */
+    display: flex; 
     justify-content: center;
     align-items: center;
-    margin-bottom: -20px;
 }
 
 /* Center the toggle menu button */
