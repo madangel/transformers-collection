@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Add event listener to the clear button to clear the search bar
     clearButton.addEventListener('click', () => {
-        searchBar.value = ''; // Clear the input
+        searchQuery = ''; // Clear the input
         toggleClearButton(); // Hide the clear button
         displayToys(); // Re-display the full toy list or clear the search results
     });
