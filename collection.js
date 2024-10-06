@@ -25,8 +25,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         filteredToys = Object.values(toys);
     } else {
         console.error("The toys object is not defined or is null:", toys);
-        // Handle the error by displaying a message or returning early
-        return;
     }
     
     // Display toys on the page (keeping the original thumbnail styling)
