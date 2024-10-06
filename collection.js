@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Display toys on the page (keeping the original thumbnail styling)
     function displayToys(toys) {
         // Filter and sort toys based on the current values of search, sort, and filter options
-        let filteredToys = Object.values(toys);
         if (searchQuery) {
             filteredToys = filteredToys.filter(toy => toy.name.toLowerCase().includes(searchQuery.toLowerCase()));
         }
