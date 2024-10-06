@@ -42,6 +42,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 let valA = a[sortCriteria];
                 let valB = b[sortCriteria];
 
+                // Check the types and values of the properties being compared
+                console.log(`Comparing ${criteria}:`, valA, "vs", valB, `Type of valA: ${typeof valA}, Type of valB: ${typeof valB}`);
+
                 // Convert undefined or null values to empty strings or zero for comparison
                 if (valA === undefined || valA === null) valA = '';
                 if (valB === undefined || valB === null) valB = '';
